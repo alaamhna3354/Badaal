@@ -122,9 +122,11 @@ body {
   letter-spacing: -3px;
   margin: 20px 0 0 0;
   font-family: "MonteCarlo", cursive, "Aref Ruqaa", serif;
+  text-shadow: 1px 8px 7px #24c1ff;
 }
 .un-color {
-  color: #a2d6e1;
+  color: #a7e1ee;
+  text-shadow: 1px 8px 7px #24c1ff;
 }
 @media (max-width: 767px) {
   .special-heading {
@@ -158,7 +160,14 @@ body {
   width: 100%;
   height: 100%;
 }
-
+.swiper4 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.swiper4 .swiper-pagination {
+  bottom: -30px !important;
+}
 /* End Components */
 /* Start Header */
 .header {
@@ -460,6 +469,168 @@ body {
   color: #777;
 }
 /* End About */
+/* Start Blog */
+.subtle {
+  color: #aaa;
+}
+.blog {
+  padding: 0 0 25px 0;
+  background-color: #cdfd;
+  height: 600px;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.blog .containe {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 10px;
+}
+.blog .card-container {
+  margin: 25px 0;
+  position: relative;
+  width: auto;
+  height: 310px;
+  cursor: pointer;
+  transition: var(--main-duration);
+}
+.blog .card-container:hover {
+  scale: 0.9;
+}
+.auto-heigh {
+  height: auto !important;
+}
+.blog .image img {
+  width: 100%;
+  height: 100%;
+}
+.blog .card {
+  background-color: #fff;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 0 5px rgba(75, 75, 75, 0.07);
+  z-index: 1;
+  display: flex;
+}
+.blog .card-body {
+  display: inline-block;
+  width: 60%;
+}
+.blog .image {
+  width: 40%;
+}
+.blog .card-number {
+  margin-top: 15px;
+}
+
+.blog .card-circle {
+  border: 1px solid #164b59;
+  border-radius: 50%;
+  display: inline-block;
+  line-height: 22px;
+  font-size: 13px;
+  height: 25px;
+  text-align: center;
+  width: 25px;
+  font-weight: bold;
+  color: #164b59;
+}
+
+.blog .card-author {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  margin: 15px 0 0;
+  text-transform: uppercase;
+}
+
+.blog .card-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  margin: 10px 0;
+  color: #164b59;
+}
+
+.blog .card-description {
+  display: inline-block;
+  font-weight: 300;
+  line-height: 22px;
+  margin: 10px 0;
+}
+
+.blog .card-read {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin: 5px 0 20px;
+  text-align: right;
+  text-transform: uppercase;
+}
+.blog .card-read span {
+  background-color: #164b59;
+  color: #fff;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--main-duration);
+}
+.blog .card-read span:hover {
+  padding-inline-start: 10px;
+  opacity: 0.9;
+}
+.blog .card-tag {
+  float: right;
+  margin: 5px 0 0;
+}
+
+.blog .card-media {
+  float: right;
+}
+
+.blog .card-shadow {
+  background-color: #fff;
+  box-shadow: 0 2px 25px 2px rgba(0, 0, 0, 1), 0 2px 50px 2px rgba(0, 0, 0, 1),
+    0 0 100px 3px rgba(0, 0, 0, 0.25);
+  height: 1px;
+  margin: -1px auto 0;
+  width: 80%;
+  z-index: -1;
+}
+/* colum-card blog*/
+.colum-card {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.colum-card .card-body {
+  width: 100%;
+  display: grid;
+}
+.colum-card .image {
+  width: 100%;
+  height: 400px;
+}
+.colum-card2 {
+  display: grid !important;
+}
+.colum-card2 .card-body {
+  width: 100%;
+  display: grid;
+}
+.colum-card2 .image {
+  width: 100%;
+  height: 400px;
+}
+/* row-card blog*/
+.row-card .card-body {
+  width: 65%;
+}
+.row-card .image {
+  width: 50%;
+}
+
+/* End Blog */
 /* Start Portfolio */
 .portfolios,
 .contacts {
@@ -503,19 +674,23 @@ body {
   margin-top: 100px;
 }
 .services .services-content .srv {
-  display: flex;
+  display: grid;
   margin-bottom: 40px;
   cursor: pointer;
   box-shadow: 1px 1px 13px #a0acab;
   border-radius: 3px;
   transition: var(--main-duration);
-  height: 150px;
+  height: auto;
   padding: 10px;
   background-color: #e4e4ff;
+  width: 240px;
+  place-content: center;
+  border: 5px solid #259585;
 }
 .services .services-content .srv:hover {
-  box-shadow: 1px 1px 13px #10cab7;
+  box-shadow: 1px 1px 13px #15bdff;
   scale: 1.1;
+  border: 5px solid #89dbfb;
 }
 @media (max-width: 767px) {
   .services .services-content .srv {
@@ -529,17 +704,17 @@ body {
   text-align: center;
 }
 .services .services-content .srv .text {
-  flex: 1;
+  margin: 10px 0 0 0;
 }
 .services .services-content .srv .text h3 {
   margin: 0 0 20px;
   color: #575757;
 }
-.services .services-content .srv .text p {
+/* .services .services-content .srv .text p {
   color: #444;
   font-weight: 300;
   line-height: 1.6;
-}
+} */
 .services .services-content .image {
   text-align: center;
   position: relative;
@@ -562,6 +737,64 @@ body {
     display: none;
   }
 }
+/* End services  */
+/* Start testimonials */
+.testimonials {
+  background-color: #c2e7fb;
+  overflow: hidden;
+}
+.testimonials .contain {
+  padding: 20px 60px 50px 0;
+}
+.testimonials .contain-rate {
+  width: 90%;
+}
+.testimonials .comment {
+  background-color: #4f93ae;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+}
+.testimonials .comment::before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  border-color: #4f93ae transparent transparent transparent;
+  position: absolute;
+  bottom: -20px;
+  right: 40px;
+}
+.testimonials .user {
+  display: flex;
+  gap: 50px;
+  margin-top: 25px;
+}
+.testimonials .user .image {
+  width: 100px;
+  height: 100px;
+}
+.testimonials .user .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.details h2 {
+  color: #1abc9c;
+}
+.details h4 {
+  color: #728a85;
+}
+.details .rating {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.details .rating span {
+  color: #ffdc12;
+  font-size: 25px;
+}
+/* End testimonials  */
 /* Start teams  */
 .teams .container {
   display: grid;
@@ -569,9 +802,10 @@ body {
   grid-gap: 30px;
 }
 .our-team {
+  margin-top: 50px;
   padding: 30px 0 40px;
   margin-bottom: 30px;
-  background-color: #f7f5ec;
+  background-color: #bbecff63;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -620,7 +854,7 @@ body {
 
 .our-team .picture img {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 50%;
   transform: scale(1);
   transition: all 0.9s ease 0s;
@@ -630,14 +864,15 @@ body {
   box-shadow: 0 0 0 14px #f7f5ec;
   transform: scale(0.7);
 }
-
+.our-team .name {
+  color: #3e8697;
+}
 .our-team .title {
   display: block;
   font-size: 15px;
   color: #4e5052;
   text-transform: capitalize;
 }
-
 .our-team .social {
   width: 100%;
   padding: 0;
