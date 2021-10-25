@@ -23,7 +23,7 @@ body {
   margin: 0;
 }
 .back-color {
-  background-color: #dbe0f0;
+  background-color: #2c4755;
 }
 .bod {
   background: linear-gradient(#3800e7, #8a15ff);
@@ -676,6 +676,7 @@ body {
   position: relative;
   height: 500px;
   direction: ltr;
+  background-color: #c2e7fb;
 }
 .contact input:focus,
 .contact button:focus {
