@@ -1,0 +1,96 @@
+$mainColor: #19c8fa;
+$secondryColor: #286f82;
+$pColor: #a2a2a2;
+$sectionPadding:100px;
+$tranpaerntColor: #0f748fba;
+
+  // Start featuers
+
+  .landing {
+    .parallax-slider {
+      position: relative;
+    }
+    .parallax-slide {
+      height: 500px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .parallax-slider-navigation {
+      position: absolute;
+      top: 50%;
+      z-index: 11;
+      left: 2%;
+      right: 2%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      height: 0;
+    }
+    .parallax-slide-image {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    .nav-indicator {
+      height: 40px;
+      width: 40px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #146078;
+      color: #ffffff;
+      border-radius: 40px;
+      cursor: pointer;
+      position: relative;
+      transform: translateY(-50%);
+    }
+    .text{
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      width: 50%;
+      color: #fff;
+      padding: 50px;
+      background-color: #0f748fba;
+      display: flex;
+      justify-content: flex-end;
+      transform: translate(-50%,-50%);
+      box-shadow: 1px 4px 30px #00caff;
+      border-radius: 10px;
+      @media (max-width: 776px) {
+          width: 100%;
+      }
+      .content{
+        max-width: 500px;
+        @media (max-width: 776px) {
+          max-width: 100%;
+      }
+        h2{
+          font-size: 32px;
+          line-height: 1.5;
+          margin-bottom: 25px;
+        }
+        p{
+          font-size: 14px;
+          line-height: 2;
+          font-family: initial;
+        }
+      }
+    }
+  }
+
+  // End featuers

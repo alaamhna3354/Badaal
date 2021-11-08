@@ -1,0 +1,39 @@
+// Start Testimonials
+#testimonials {
+	padding: 5rem 0;
+	background: #ffffff;
+}
+.testimonial-title {
+	text-align: center;
+	font-size: 2.5rem;
+	font-weight: 400;
+	color: var(--titleSection-color);
+}
+.testimonial-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 30px;
+}
+.testimonial-box {
+	.checked {
+		color: #ff9529;
+	}
+	.testimonial-text {
+		margin: 1rem 0;
+		color: #444;
+	}
+	text-align: center;
+	padding: 1rem;
+}
+.customer-photo {
+	img {
+		display: block;
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 50%;
+		margin: auto;
+		box-shadow: 1px 3px 25px var(--secondary-color);
+	}
+}

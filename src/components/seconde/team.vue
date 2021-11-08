@@ -32,7 +32,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -63,7 +63,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -94,7 +94,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -125,7 +125,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -156,7 +156,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -187,7 +187,7 @@
                 </li>
               </ul>
               <div class="image">
-                <a href="#"><img src="../../assets/img/manger.jpg" alt="" /></a>
+                <a href="#"><img v-lazy="'img/manger.jpg'" alt="" /></a>
               </div>
               <div class="lower-content">
                 <h3><a href="#">Lorem Ipsum </a></h3>
@@ -233,7 +233,7 @@ img {
 .sec-title .title {
   position: relative;
   font-size: 18px;
-  color: var(--secondary-color);
+  color:  var(--titleSection-color);
   font-weight: 700;
   margin-bottom: 12px;
   text-transform: capitalize;
@@ -252,7 +252,7 @@ img {
   top: 0px;
   width: 10px;
   height: 2px;
-  background-color: var(--main-color);
+  background-color: var(--titleSection-color);
 }
 
 .sec-title .separator:after {
@@ -262,7 +262,7 @@ img {
   top: 0px;
   width: 10px;
   height: 2px;
-  background-color: var(--main-color);
+  background-color:  var(--titleSection-color);
 }
 
 .sec-title .separator span {
@@ -273,7 +273,7 @@ img {
   height: 5px;
   margin-left: -5px;
   display: inline-block;
-  background-color: var(--secondary-color);
+  background-color:  var(--titleSection-color);
 }
 .sec-title .text {
   position: relative;
@@ -458,6 +458,7 @@ img {
   position: relative;
   width: 100%;
   display: block;
+  
 }
 
 .team-block .inner-box .lower-content {

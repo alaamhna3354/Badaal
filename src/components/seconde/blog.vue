@@ -1,5 +1,5 @@
 <template>
-  <div class="blog">
+  <div class="blog2">
     <h1>blog</h1>
     <swiper
       class="swiper"
@@ -13,7 +13,7 @@
         <div class="blog-item">
           <div class="blog-img">
             <img
-              src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
+              v-lazy="'https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp'"
               alt=""
             />
           </div>
@@ -31,47 +31,6 @@
     </swiper>
   </div>
 </template>
-<style scoped>
-.blog {
-  padding: 50px 0;
-  background-color: var(--main-color);
-  overflow: hidden;
-}
-.blog h1 {
-  text-align: center;
-  text-shadow: 2px 2px 5px #ddd;
-  font-size: 40px;
-}
-.blog-item {
-  width: 80%;
-  display: flex;
-  margin: 0 auto;
-  justify-content: space-around;
-  padding: 20px;
-  box-shadow: 3px 3px 25px #888;
-}
-.blog-img {
-  width: 300px;
-  height: 300px;
-}
-.blog-img img {
-  max-width: 100%;
-}
-.blog-content {
-  display: grid;
-  width: 60%;
-}
-@media (max-width: 767px) {
-  .blog-item {
-    display: grid;
-    margin: 0 auto;
-  }
-  .blog-content {
-    width: 100%;
-    padding: 5px;
-  }
-}
-</style>
 <script>
 import SwiperCore, { Pagination } from "swiper";
 // Import Swiper Vue.js components

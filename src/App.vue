@@ -1,35 +1,37 @@
 <template>
-  <top />
-  <div id="nav">
-    <router-view />
-    <!-- <router-link to="/">Home</router-link> |
+  <component :is="Headerswitch" />
+  <router-view />
+  <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-  </div>
-  <Footer />
+  <component :is="Footerswitch" />
 </template>
 <script>
 // @ is an alias to /src
-//http://badaelonline.com/backend/public/admin
-//alaa@mail.test
-//12345678
-import top from "@/Header/header.vue";
-import Footer from "@/Footer/footer.vue";
+// http://badaelonline.com/backend/public/login
+// alaa@mail.test
+// 12345678
+import { defineAsyncComponent } from "vue";
+import { mapState } from "vuex";
 export default {
   name: "Home",
+  data() {
+    return {};
+  },
   components: {
-    top,
-    Footer,
+    Header: defineAsyncComponent(() => import("@/Header/header.vue")),
+    Footer: defineAsyncComponent(() => import("@/Footer/footer.vue")),
+    Header2: defineAsyncComponent(() => import("@/Header/header2.vue")),
+    Footer2: defineAsyncComponent(() => import("@/Footer/footer2.vue")),
+  },
+  computed: {
+    ...mapState(["Headerswitch", "Footerswitch"]),
+  },
+  mounted() {
+    // set root css
   },
 };
 </script>
 <style lang="scss">
-:root {
-  --white-color: #fff;
-  --main-color: #e1f0f9;
-  --secondary-color: #2c4755;
-  --section-padding: 50px;
-  --main-duration: 0.5s;
-}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -42,10 +44,21 @@ body {
   font-family: "Amiri", serif;
   margin: 0;
 }
-
+ul {
+  list-style: none;
+  padding: 0;
+}
+:root {
+  --white-color: #fff;
+  --main-color: #e1f0f9;
+  --secondary-color: #2c4755;
+  --titleSection-color: #1daad2;
+  --section-padding: 50px;
+  --main-duration: 0.5s;
+}
 /* import font family */
-@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
 /* Start Variables */
 
 /* End Variables */
@@ -76,7 +89,52 @@ body {
 }
 /* End Global Rules */
 /* Start Components */
-
+// Varibles
+$mainColor: #19c8fa;
+$secondryColor: #286f82;
+$pColor: #a2a2a2;
+$sectionPadding: 100px;
+$tranpaerntColor: #0f748fba;
+// global component
+.main-heading {
+  text-align: center;
+  h2 {
+    font-weight: normal;
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 70px;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -30px;
+      height: 2px;
+      width: 120px;
+      background-color: #333;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      bottom: -38px;
+      background-color: white;
+    }
+  }
+  p {
+    width: 550px;
+    max-width: 100%;
+    margin: 0 auto 100px;
+    color: $pColor;
+    line-height: 2;
+  }
+}
 /* first Components */
 .botun {
   border: navajowhite;
@@ -131,18 +189,14 @@ body {
 }
 /* seconde Components */
 .special-heading {
-  color: #1daad2;
-  font-size: 100px;
+  color: var(--titleSection-color);
+  font-size: 60px;
   text-align: center;
   font-weight: 800;
   letter-spacing: -3px;
   margin: 20px 0 0 0;
   font-family: "MonteCarlo", cursive, "Aref Ruqaa", serif;
-  text-shadow: 1px 8px 7px #6084a8;
-}
-.un-color {
-  color: #6c98e6;
-  text-shadow: 1px 8px 7px #6084a8;
+  text-shadow: 1px 8px 7px #2e2f2f;
 }
 @media (max-width: 767px) {
   .special-heading {

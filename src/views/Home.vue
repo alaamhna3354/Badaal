@@ -3,6 +3,7 @@
     <div class="setting" id="setting">
       <i class="fa fa-cog fa-2x fa-spin" aria-hidden="true"></i>
     </div>
+    <div class="over-lay" id="over-lay" @click="toggleOverLay"></div>
     <div class="controler" id="controler">
       <swiper
         class="swiper"
@@ -22,81 +23,112 @@
         <swiper-slide>
           <div class="contain">
             <div>
-              <h1>Switch component</h1>
+              <h1>Header and Footer</h1>
             </div>
-            <div>
-              <label for="">{{ firstOrSecondfeatuers }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchfeatuers" />
-                <div class="slider round"></div>
-              </label>
+            <div style="padding: 25px 0">
+              <label for="">{{ Headerswitch }} </label>
+              <select v-model="Headerswitch">
+                <option value="Header">Template 1</option>
+                <option value="Header2">Template 2</option>
+              </select>
             </div>
-            <div>
-              <label for="">{{ firstOrSecondabout }}</label>
-              <label class="switch">
-                <input type="checkbox" @click="switchabout" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for="">{{ firstOrSecondblog }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchblog" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for=""> {{ firstOrSecondportfolio }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchportfolio" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for="">{{ firstOrSecondpartner }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchpartner" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for=""> {{ firstOrSecondservices }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchservices" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for=""> {{ firstOrSecondtestomonials }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchtestomonials" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for="">{{ firstOrSecondteam }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchteam" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for="">{{ firstOrSecondfaq }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchfaq" />
-                <div class="slider round"></div>
-              </label>
-            </div>
-            <div>
-              <label for="">{{ firstOrSecondcontact }} </label>
-              <label class="switch">
-                <input type="checkbox" @click="switchcontact" />
-                <div class="slider round"></div>
-              </label>
+            <div style="padding: 25px 0">
+              <label for="">{{ Footerswitch }}</label>
+              <select v-model="Footerswitch">
+                <option value="Footer">Template 1</option>
+                <option value="Footer2">Template 2</option>
+              </select>
             </div>
           </div>
         </swiper-slide>
         <swiper-slide>
+          <div class="contain">
+            <div>
+              <h1>Switch component</h1>
+            </div>
+            <div>
+              <label for="">{{ list[0].name }} </label>
+              <select v-model="list[0].name">
+                <option value="First_Featuers">Template 1</option>
+                <option value="Seconde_Featuers">Template 2</option>
+                <option value="Third_Featuers">Template 3</option>
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[1].name }}</label>
+              <select v-model="list[1].name">
+                <option value="First_About">Template 1</option>
+                <option value="Seconde_About">Template 2</option>
+                <option value="Third_About">Template 3</option>
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[5].name }} </label>
+              <select v-model="list[5].name">
+                <option value="First_Blog">Template 1</option>
+                <option value="Seconde_Blog">Template 2</option>
+                <!-- <option value="Third_Blog">Template 3</option> -->
+              </select>
+            </div>
+            <div>
+              <label for=""> {{ list[2].name }} </label>
+              <select v-model="list[2].name">
+                <option value="First_Portfolio">Template 1</option>
+                <option value="Seconde_Portfolio">Template 2</option>
+                <option value="Third_Portfolio">Template 3</option>
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[4].name }} </label>
+              <select v-model="list[4].name">
+                <option value="First_Partner">Template 1</option>
+                <!-- <option value="Seconde_Partner">Template 2</option>
+                 <option value="Third_Partner">Template 3</option> -->
+              </select>
+            </div>
+            <div>
+              <label for=""> {{ list[3].name }} </label>
+              <select v-model="list[3].name">
+                <option value="First_Services">Template 1</option>
+                <option value="Seconde_Services">Template 2</option>
+                <option value="Third_Services">Template 3</option>
+              </select>
+            </div>
+            <div>
+              <label for=""> {{ list[6].name }} </label>
+              <select v-model="list[6].name">
+                <option value="First_Testomonials">Template 1</option>
+                <option value="Seconde_Testomonials">Template 2</option>
+                <option value="Third_Testomonials">Template 3</option>
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[7].name }} </label>
+              <select v-model="list[7].name">
+                <option value="First_Team">Template 1</option>
+                <option value="Seconde_Team">Template 2</option>
+                <!-- <option value="Third_Team">Template 3</option> -->
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[8].name }} </label>
+              <select v-model="list[8].name">
+                <option value="First_Faq">Template 1</option>
+                <!-- <option value="Seconde_Faq">Template 2</option>
+                 <option value="Third_Faq">Template 3</option> -->
+              </select>
+            </div>
+            <div>
+              <label for="">{{ list[9].name }} </label>
+              <select v-model="list[9].name">
+                <option value="First_Contact">Template 1</option>
+                <option value="Seconde_Contact">Template 2</option>
+                <option value="Third_Contact">Template 3</option>
+              </select>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- <swiper-slide>
           <div class="contain">
             <div>
               <h1>Sort Sections</h1>
@@ -142,232 +174,108 @@
               <input type="number" v-model="sorting.contact" />
             </div>
           </div>
+        </swiper-slide> -->
+        <swiper-slide>
+          <div class="contain">
+            <div>
+              <h1>Choose Color</h1>
+            </div>
+            <div>
+              <label for="">Main Color</label>
+              <input
+                type="text"
+                v-model="main"
+                placeholder="Example #fff"
+                style="background: var(--main-color)"
+              />
+            </div>
+            <div>
+              <label for="">Secondary Color</label>
+              <input
+                type="text"
+                v-model="secondary"
+                placeholder="Example #fff"
+                style="background: var(--secondary-color)"
+              />
+            </div>
+            <div>
+              <label for="">Title Section text</label>
+              <input
+                type="text"
+                v-model="titleSection"
+                placeholder="Example #fff"
+                style="color: var(--titleSection-color)"
+              />
+            </div>
+            <div>
+              <button class="botun" @click="setnewvalue">set new value</button>
+            </div>
+          </div>
         </swiper-slide>
       </swiper>
     </div>
-    <component
-      :is="firstOrSecondfeatuers"
-      id="featuers"
-      :style="{ order: sorting.featuers }"
-    />
-    <component
-      :is="firstOrSecondabout"
-      id="about"
-      :title="about.title"
-      :subject="about.subject"
-      :desc="about.desc"
-      :style="{ order: sorting.about }"
-    />
+    <draggable
+      class="dragArea list-group w-full"
+      :list="list"
+      @change="log"
+      :sort="false"
+    >
+      <div
+        class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center"
+        handle=".handle"
+        v-for="item in list.slice(0, 5)"
+        :key="item"
+      >
+        <component
+          :is="item.name"
+          :banner="banner"
+          :portfolio="portfolio"
+          :partner="partner"
+          :service="service"
+          :about="about"
+        />
+      </div>
+
+      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
     <component
       :is="firstOrSecondblog"
       id="blog"
       :blog="blog"
       :style="{ order: sorting.blog }"
     />
-    <component
-      :is="firstOrSecondportfolio"
-      id="portfolio"
-      :portfolio="portfolio"
-      :style="{ order: sorting.portfolio }"
-    />
-    <component
-      :is="firstOrSecondpartner"
-      id="partner"
-      :partner="partner"
-      :style="{ order: sorting.partner }"
-    />
-    <component
-      :is="firstOrSecondservices"
-      id="service"
-      :service="service"
-      :style="{ order: sorting.service }"
-    />
-    <component
+    </div> -->
+      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+   <component
       :is="firstOrSecondtestomonials"
       id="testimonials"
       :style="{ order: sorting.testimonials }"
     />
+    </div> -->
+      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+  
     <component
       :is="firstOrSecondteam"
       id="team"
       :style="{ order: sorting.team }"
     />
-    <component
+    </div> -->
+      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+  <component
       :is="firstOrSecondfaq"
       id="faq"
       :style="{ order: sorting.faq }"
     />
-    <component
+    </div> -->
+      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+   <component
       :is="firstOrSecondcontact"
       id="contact"
       :style="{ order: sorting.contact }"
     />
+    </div> -->
+    </draggable>
   </div>
 </template>
-<style scoped>
-.parallax-slider-navigation {
-  position: absolute;
-  top: 95%;
-  z-index: 11;
-  left: 40%;
-  right: 40%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  height: 0;
-}
-.nav-indicator {
-  height: 40px;
-  width: 40px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #8ca8b796;
-  color: #464242;
-  border-radius: 40px;
-  cursor: pointer;
-  position: relative;
-  transform: translateY(-50%);
-}
-
-.home {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.setting {
-  position: fixed;
-  padding: 10px;
-  background-color: #0000001f;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  z-index: 100;
-  cursor: pointer;
-  display: grid;
-  top: 10%;
-}
-.setting i {
-  color: #2c4755;
-}
-.controler {
-  position: fixed;
-  z-index: 99;
-  width: 50%;
-  height: 100%;
-  background-image: linear-gradient(#9ec5e88a, #82828296 70%, #7582a43d);
-  background-size: cover;
-  color: #282a2b;
-  top: 0;
-  left: -100%;
-  transition: var(--main-duration);
-  overflow: hidden;
-}
-.controler .swiper-pagination {
-  bottom: 0px !important;
-}
-.controler .contain {
-  width: 80%;
-  margin: auto;
-  margin-top: auto;
-  border: 1px solid #5b74b0;
-  background-color: #f0f8ff42;
-  box-shadow: 1px 3px 15px black;
-  height: 90%;
-  margin-top: 30px;
-}
-.controler .contain div {
-  display: flex;
-  justify-content: space-around;
-  margin: 5px 0;
-}
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 767.98px) {
-  .controler {
-    width: 70%;
-  }
-}
-.show {
-  left: 0;
-}
-
-.controler div:not(:last-child, :first-child) {
-  border-bottom: 1px solid #fff;
-}
-input {
-  width: 60px;
-  height: 25px;
-  border: none;
-  text-align: center;
-  background-image: linear-gradient(#9ec5e8, #828282 70%, #7582a4);
-  border-radius: 5px;
-  color: #4e5553;
-  font-weight: bold;
-}
-input:focus {
-  outline: 0;
-}
-label {
-  font-size: 22px;
-  width: 100px;
-}
-/* switch button */
-.controler .switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 38px;
-}
-
-.controler .switch input {
-  display: none;
-}
-
-.controler .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #628bd9;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.controler .slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.controler input:checked + .slider {
-  background-color: #50b94d;
-}
-
-.controler input:focus + .slider {
-  box-shadow: 0 0 1px #50b94d;
-}
-
-.controler input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.controler .slider.round {
-  border-radius: 34px;
-}
-
-.controler .slider.round:before {
-  border-radius: 50%;
-}
-</style>
 <script>
 import SwiperCore, { Navigation, Parallax } from "swiper";
 // Import Swiper Vue.js components
@@ -377,184 +285,242 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 SwiperCore.use([Navigation, Parallax]);
 import axios from "axios";
-// import First component
-import First_Featuers from "../components/first/featuers.vue";
-import First_About from "../components/first/about.vue";
-import First_Blog from "../components/first/blog.vue";
-import First_Portfolio from "../components/first/portfolio.vue";
-import First_Partner from "../components/first/partner.vue";
-import First_Services from "../components/first/services.vue";
-import First_Testomonials from "../components/first/testomonials.vue";
-import First_Team from "../components/first/team.vue";
-import First_Faq from "../components/first/faq.vue";
-import First_Contact from "../components/first/contact.vue";
-// import Seconde component
-import Seconde_Featuers from "../components/seconde/featuers.vue";
-import Seconde_About from "../components/seconde/about.vue";
-import Seconde_Blog from "../components/seconde/blog.vue";
-import Seconde_Portfolio from "../components/seconde/portfolio.vue";
-import Seconde_Partner from "../components/seconde/partner.vue";
-import Seconde_Services from "../components/seconde/services.vue";
-import Seconde_Testomonials from "../components/seconde/testomonials.vue";
-import Seconde_Team from "../components/seconde/team.vue";
-import Seconde_Faq from "../components/seconde/faq.vue";
-import Seconde_Contact from "../components/seconde/contact.vue";
-export default {
+import { defineAsyncComponent } from "vue";
+import { defineComponent } from "vue";
+import { VueDraggableNext } from "vue-draggable-next";
+// const baseURL = "http://localhost:3001/data"; // https://developer.school/tutorials/how-to-use-vue-js-json-server-and-axios
+export default defineComponent({
   name: "Home",
   components: {
-    // First component
-    First_Featuers,
-    First_About,
-    First_Blog,
-    First_Portfolio,
-    First_Partner,
-    First_Services,
-    First_Testomonials,
-    First_Team,
-    First_Faq,
-    First_Contact,
-    //  SecondeSeconde component
-    Seconde_Featuers,
-    Seconde_About,
-    Seconde_Blog,
-    Seconde_Portfolio,
-    Seconde_Partner,
-    Seconde_Services,
-    Seconde_Testomonials,
-    Seconde_Team,
-    Seconde_Faq,
-    Seconde_Contact,
+    draggable: VueDraggableNext,
+    First_Featuers: defineAsyncComponent(() =>
+      import("../components/first/featuers.vue")
+    ),
+    First_About: defineAsyncComponent(() =>
+      import("../components/first/about.vue")
+    ),
+    First_Blog: defineAsyncComponent(() =>
+      import("../components/first/blog.vue")
+    ),
+    First_Portfolio: defineAsyncComponent(() =>
+      import("../components/first/portfolio.vue")
+    ),
+    First_Partner: defineAsyncComponent(() =>
+      import("../components/first/partner.vue")
+    ),
+    First_Services: defineAsyncComponent(() =>
+      import("../components/first/services.vue")
+    ),
+    First_Testomonials: defineAsyncComponent(() =>
+      import("../components/first/testomonials.vue")
+    ),
+    First_Team: defineAsyncComponent(() =>
+      import("../components/first/team.vue")
+    ),
+    First_Faq: defineAsyncComponent(() =>
+      import("../components/first/faq.vue")
+    ),
+    First_Contact: defineAsyncComponent(() =>
+      import("../components/first/contact.vue")
+    ),
+    // //  Seconde component
+    Seconde_Featuers: defineAsyncComponent(() =>
+      import("../components/seconde/featuers.vue")
+    ),
+    Seconde_About: defineAsyncComponent(() =>
+      import("../components/seconde/about.vue")
+    ),
+    Seconde_Blog: defineAsyncComponent(() =>
+      import("../components/seconde/blog.vue")
+    ),
+    Seconde_Portfolio: defineAsyncComponent(() =>
+      import("../components/seconde/portfolio.vue")
+    ),
+    Seconde_Partner: defineAsyncComponent(() =>
+      import("../components/seconde/partner.vue")
+    ),
+    Seconde_Services: defineAsyncComponent(() =>
+      import("../components/seconde/services.vue")
+    ),
+    Seconde_Testomonials: defineAsyncComponent(() =>
+      import("../components/seconde/testomonials.vue")
+    ),
+    Seconde_Team: defineAsyncComponent(() =>
+      import("../components/seconde/team.vue")
+    ),
+    Seconde_Faq: defineAsyncComponent(() =>
+      import("../components/seconde/faq.vue")
+    ),
+    Seconde_Contact: defineAsyncComponent(() =>
+      import("../components/seconde/contact.vue")
+    ),
+    // //  Third component
+    Third_Featuers: defineAsyncComponent(() =>
+      import("../components/third/featuers.vue")
+    ),
+    Third_About: defineAsyncComponent(() =>
+      import("../components/third/about.vue")
+    ),
+    Third_Blog: defineAsyncComponent(() =>
+      import("../components/third/blog.vue")
+    ),
+    Third_Portfolio: defineAsyncComponent(() =>
+      import("../components/third/portfolio.vue")
+    ),
+    Third_Partner: defineAsyncComponent(() =>
+      import("../components/third/partner.vue")
+    ),
+    Third_Services: defineAsyncComponent(() =>
+      import("../components/third/services.vue")
+    ),
+    Third_Testomonials: defineAsyncComponent(() =>
+      import("../components/third/testomonials.vue")
+    ),
+    Third_Team: defineAsyncComponent(() =>
+      import("../components/third/team.vue")
+    ),
+    Third_Faq: defineAsyncComponent(() =>
+      import("../components/third/faq.vue")
+    ),
+    Third_Contact: defineAsyncComponent(() =>
+      import("../components/third/contact.vue")
+    ),
     Swiper,
     SwiperSlide,
   },
+
   data() {
     return {
-      firstOrSecondfeatuers: "First_Featuers",
-      firstOrSecondabout: "First_About",
-      firstOrSecondblog: "First_Blog",
-      firstOrSecondportfolio: "First_Portfolio",
-      firstOrSecondpartner: "First_Partner",
-      firstOrSecondservices: "First_Services",
-      firstOrSecondtestomonials: "First_Testomonials",
-      firstOrSecondteam: "First_Team",
-      firstOrSecondfaq: "First_Faq",
-      firstOrSecondcontact: "First_Contact",
-      sorting: {
-        featuers: 1,
-        about: 2,
-        blog: 3,
-        portfolio: 4,
-        partner: 5,
-        service: 6,
-        testimonials: 7,
-        team: 8,
-        faq: 9,
-        contact: 10,
-      },
+      list: [
+        { name: "First_Featuers", id: 1 },
+        { name: "First_About", id: 2 },
+        { name: "First_Portfolio", id: 3 },
+        { name: "First_Services", id: 4 },
+        { name: "First_Partner", id: 5 },
+        { name: "First_Blog", id: 6 },
+        { name: "First_Testomonials", id: 7 },
+        { name: "First_Team", id: 8 },
+        { name: "First_Faq", id: 9 },
+        { name: "First_Contact", id: 10 },
+      ],
+      general: [],
+      banner: [],
       about: [],
       blog: [],
       portfolio: [],
       partner: [],
       service: [],
+      main: "",
+      secondary: "",
+      titleSection: "",
+      roots: {
+        white_color: "#fff",
+        main_color: "#e1f0f9",
+        secondary_color: "#2c4755",
+        titleSection_color: "#1daad2",
+        section_padding: "50px",
+        main_duration: "0.5s",
+      },
     };
   },
-  computed: {},
   methods: {
-    switchfeatuers() {
-      if (this.firstOrSecondfeatuers === "First_Featuers") {
-        this.firstOrSecondfeatuers = "Seconde_Featuers";
-      } else {
-        this.firstOrSecondfeatuers = "First_Featuers";
-      }
+    log() {
+      console.log(this.list);
     },
-    switchabout() {
-      if (this.firstOrSecondabout === "First_About") {
-        this.firstOrSecondabout = "Seconde_About";
-      } else {
-        this.firstOrSecondabout = "First_About";
-      }
+    toggleOverLay() {
+      document.getElementById("controler").classList.toggle("show");
+      document.getElementById("over-lay").classList.toggle("show");
     },
-    switchportfolio() {
-      if (this.firstOrSecondportfolio === "First_Portfolio") {
-        this.firstOrSecondportfolio = "Seconde_Portfolio";
-      } else {
-        this.firstOrSecondportfolio = "First_Portfolio";
-      }
-    },
-    switchservices() {
-      if (this.firstOrSecondservices === "First_Services") {
-        this.firstOrSecondservices = "Seconde_Services";
-      } else {
-        this.firstOrSecondservices = "First_Services";
-      }
-    },
-    switchtestomonials() {
-      if (this.firstOrSecondtestomonials === "First_Testomonials") {
-        this.firstOrSecondtestomonials = "Seconde_Testomonials";
-      } else {
-        this.firstOrSecondtestomonials = "First_Testomonials";
-      }
-    },
-    switchcontact() {
-      if (this.firstOrSecondcontact === "First_Contact") {
-        this.firstOrSecondcontact = "Seconde_Contact";
-      } else {
-        this.firstOrSecondcontact = "First_Contact";
-      }
-    },
-    switchteam() {
-      if (this.firstOrSecondteam === "First_Team") {
-        this.firstOrSecondteam = "Seconde_Team";
-      } else {
-        this.firstOrSecondteam = "First_Team";
-      }
-    },
-    switchblog() {
-      if (this.firstOrSecondblog === "First_Blog") {
-        this.firstOrSecondblog = "Seconde_Blog";
-      } else {
-        this.firstOrSecondblog = "First_Blog";
-      }
-    },
-    switchpartner() {
-      if (this.firstOrSecondpartner === "First_Partner") {
-        this.firstOrSecondpartner = "Seconde_Partner";
-      } else {
-        this.firstOrSecondpartner = "First_Partner";
-      }
-    },
-    switchfaq() {
-      if (this.firstOrSecondfaq === "First_Faq") {
-        this.firstOrSecondfaq = "Seconde_Faq";
-      } else {
-        this.firstOrSecondfaq = "First_Faq";
-      }
+    setnewvalue() {
+      this.roots.main_color = this.main;
+      this.roots.secondary_color = this.secondary;
+      this.roots.titleSection_color = this.titleSection;
+
+      document.documentElement.style.setProperty(
+        "--main-color",
+        this.roots.main_color
+      );
+      document.documentElement.style.setProperty(
+        "--secondary-color",
+        this.roots.secondary_color
+      );
+      document.documentElement.style.setProperty(
+        "--titleSection-color",
+        this.roots.titleSection_color
+      );
     },
     async fetch() {
       var self = this;
       await axios
         .get(`http://badaelonline.com/backend/public/`)
         .then((res) => {
+          self.general = res.data.data.general;
+          self.banner = res.data.data.banner;
           self.about = res.data.data.about;
           self.blog = res.data.data.lpost;
           self.portfolio = res.data.data.portfolio;
           self.partner = res.data.data.partner;
           self.service = res.data.data.service;
-          console.log("service: ", res.data.data.service);
+          console.log("general: ", res.data.data.general);
         })
         .catch(function (error) {
-          console.warn("Error blog ", error.toJSON());
+          console.warn("Error fetch home ", error.toJSON());
         });
     },
   },
+  computed: {
+    Headerswitch: {
+      get() {
+        return this.$store.state.Headerswitch;
+      },
+      set(Headerswitch) {
+        this.$store.commit("SET_Header", Headerswitch);
+      },
+    },
+    Footerswitch: {
+      get() {
+        return this.$store.state.Footerswitch;
+      },
+      set(Footerswitch) {
+        this.$store.commit("SET_Footer", Footerswitch);
+      },
+    },
+  },
   mounted() {
+    // this.getJson();
+    document.documentElement.style.setProperty(
+      "--white-color",
+      this.roots.white_color
+    );
+    document.documentElement.style.setProperty(
+      "--main-color",
+      this.roots.main_color
+    );
+    document.documentElement.style.setProperty(
+      "--secondary-color",
+      this.roots.secondary_color
+    );
+    document.documentElement.style.setProperty(
+      "--titleSection-color",
+      this.roots.titleSection_color
+    );
+    document.documentElement.style.setProperty(
+      "--section-padding",
+      this.roots.section_padding
+    );
+    document.documentElement.style.setProperty(
+      "--main-duration",
+      this.roots.main_duration
+    );
+    // reqeust api
     this.fetch();
-
+    // open and close setting
     window.addEventListener("click", function (e) {
       if (document.getElementById("setting").contains(e.target)) {
         document.getElementById("controler").classList.toggle("show");
+        document.getElementById("over-lay").classList.toggle("show");
       }
     });
   },
-};
+});
 </script>

@@ -1,15 +1,26 @@
 <template>
   <div class="header">
+    <div class="over-lay"></div>
     <div class="container">
-      <div class="logo"><img src="../assets/img/Logo.svg" alt="" /></div>
-      <div class="nav"><a href="#about">من نحن</a></div>
-      <div class="nav"><a href="#blog">مقالات</a></div>
-      <div class="nav"><a href="#portfolio">أعمالنا</a></div>
-      <div class="nav"><a href="#brand">علامات تجارية</a></div>
-      <div class="nav"><a href="#service">خدماتنا</a></div>
-      <div class="nav"><a href="#testimonials">عملائنا</a></div>
-      <div class="nav"><a href="#teams">فريقنا</a></div>
-      <div class="nav"><a href="#contact">اتصل بنا</a></div>
+      <div class="logo"><img v-lazy="'img/Logo.svg'" alt="" /></div>
+      <div class="nav">
+        <router-link to="/">Home</router-link>
+      </div>
+      <div class="nav"><router-link to="/about">About</router-link></div>
+      <div class="nav"><router-link to="/Services">Srvices</router-link></div>
+      <div class="nav">
+        <router-link to="/Portfolio">Portfolio</router-link>
+      </div>
+      <div class="nav"><router-link to="/Blog">Blog</router-link></div>
+      <!--  <div class="nav"><router-link to="/">من نحن</router-link></div>
+      <div class="nav"><router-link to="/">مقالات</router-link></div>
+      <div class="nav"><router-link to="/">أعمالنا</router-link></div>
+      <div class="nav"><router-link to="/">علامات تجارية</router-link></div>
+      <div class="nav"><router-link to="/">خدماتنا</router-link></div>
+      <div class="nav"><router-link to="/">عملائنا</router-link></div>
+      <div class="nav"><router-link to="/">فريقنا</router-link></div>
+      <div class="nav"><router-link to="/">اتصل بنا</router-link></div> -->
+
       <div class="links" id="links">
         <ul class="menu">
           <li>
@@ -20,14 +31,20 @@
             </span>
 
             <ul id="ul_links">
-              <li><a href="#about">من نحن</a></li>
+              <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/about">About</router-link></li>
+              <li><router-link to="/Services">Srvices</router-link></li>
+              <li><router-link to="/Portfolio">Portfolio</router-link></li>
+              <li><router-link to="/Blog">Blog</router-link></li>
+
+              <!-- <li><a href="#about">من نحن</a></li>
               <li><a href="#blog">مقالات</a></li>
               <li><a href="#portfolio">أعمالنا</a></li>
-              <li><a href="#brand">علامات تجارية</a></li>
+              <li><a href="#partner">علامات تجارية</a></li>
               <li><a href="#service">خدماتنا</a></li>
               <li><a href="#testimonials">عملائنا</a></li>
-              <li><a href="#teams">فريقنا</a></li>
-              <li><a href="#contact">اتصل بنا</a></li>
+              <li><a href="#team">فريقنا</a></li>
+              <li><a href="#contact">اتصل بنا</a></li> -->
             </ul>
           </li>
         </ul>
@@ -38,13 +55,29 @@
 <style scoped>
 /* Start Header */
 .header {
-  padding: 10px;
+  padding: 5px;
   background: var(--secondary-color);
+  background: url(../../public/img/stats.png) no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+.header .over-lay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #0000005c;
+  top: 100%;
+  left: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 .header .logo {
   width: 100px;
@@ -66,22 +99,31 @@
 .header .nav::before {
   content: "";
   width: 0%;
-  height: 3px;
-  background-color: #3b97b1;
+  height: 2px;
+  background-color: var(--titleSection-color);
+  box-shadow: 0 0 7px var(--titleSection-color),
+    0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
+    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color),
+    0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
+    0 0 151px var(--titleSection-color);
   position: absolute;
-  bottom: -5px;
+  bottom: -10px;
   transition: var(--main-duration);
 }
 .header .nav a {
   text-decoration: none;
   font-weight: 800;
-  color: #fff;
+  color: var(--white-color);
 }
 .header .nav:hover::before {
   width: 100%;
 }
 .header .nav:hover a {
-  color: #1daad2;
+  text-shadow: 0 0 7px var(--titleSection-color),
+    0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
+    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color),
+    0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
+    0 0 151px var(--titleSection-color);
 }
 .header .links:hover span:nth-child(2) {
   width: 100%;
@@ -94,7 +136,7 @@
   cursor: pointer;
 }
 .header .icon span {
-  background-color: #1daad2;
+  background-color: var(--titleSection-color);
   height: 2px;
   margin-bottom: 5px;
 }
@@ -119,7 +161,7 @@
   content: "";
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent #3b9ab1cf transparent;
+  border-color: transparent transparent var(--titleSection-color) transparent;
   position: absolute;
   right: 0;
   top: -20px;
@@ -127,7 +169,7 @@
 .header .menu ul {
   background: #ddd;
   height: 0;
-  right: 10px;
+  right: 30px;
   opacity: 0;
   position: absolute;
   transition: var(--main-duration);
@@ -136,7 +178,7 @@
   z-index: 10;
   list-style: none;
   padding: 0;
-  background-color: #3b9ab1cf;
+  background-color: var(--titleSection-color);
   text-align: center;
   padding: 5px 0;
 }
@@ -159,7 +201,7 @@
   display: block;
   padding: 5px 20px;
   text-decoration: none;
-  color: #fff;
+  color: var(--white-color);
   font-weight: 400;
 }
 .header .menu ul li:not(:last-child)::before {
@@ -174,7 +216,7 @@
 }
 .header .menu ul li:not(:last-child):hover::before {
   height: 2px;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 767.98px) {

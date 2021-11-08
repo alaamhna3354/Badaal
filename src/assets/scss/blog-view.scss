@@ -1,0 +1,33 @@
+// Start Blog
+.blog-view {
+  padding: 50px 0;
+  overflow: hidden;
+  .blog-item {
+    width: 80%;
+    display: flex;
+    margin: 0 auto 50px;
+    justify-content: space-around;
+    padding: 20px;
+    box-shadow: 3px 3px 25px #888;
+    @media (max-width: 767px) {
+      display: grid;
+      margin: 0 auto 50px;
+    }
+  }
+  .blog-img {
+    width: 300px;
+    height: 300px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .blog-content {
+    display: grid;
+    width: 60%;
+    @media (max-width: 767px) {
+      width: 100%;
+      padding: 5px;
+    }
+  }
+}
+// End Blog

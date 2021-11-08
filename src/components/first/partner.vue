@@ -2,7 +2,9 @@
   <!-- Start partner -->
   <div class="partner">
     <div class="container">
-      <h2 class="special-heading">علامات تجارية صديقة</h2>
+      <div class="main-heading">
+        <h2>Partner</h2>
+      </div>
       <swiper
         class="swiper"
         :slides-per-view="4"
@@ -13,7 +15,8 @@
       >
         <swiper-slide v-for="item in partner" :key="item">
           <a :href="item.link">
-            <img src="../../assets/img/brand.png" :alt="item.name" />
+            <img v-lazy="item.cover" :alt="item.name" />
+            <!-- <img v-lazy="'img/brand.png'" :alt="item.name" /> -->
           </a>
           <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
         </swiper-slide>
@@ -22,13 +25,6 @@
   </div>
   <!-- End partner -->
 </template>
-<style scoped>
-.partner {
-  overflow: hidden;
-  padding: 25px 0;
-  background-color: var(--white-color);
-}
-</style>
 <script>
 import SwiperCore, { Scrollbar } from "swiper";
 // Import Swiper Vue.js components

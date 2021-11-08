@@ -2,10 +2,13 @@
   <!-- Start Portfolio -->
   <div class="port">
     <div class="portfolios">
-      <h2 class="special-heading un-color">أعمالنا</h2>
-      <div class="image">
+      <h2 class="special-heading">Portfolio</h2>
+      <div class="change-view">
+        <span @click="toggle">Show {{ show ? "Mobile" : "Disktop" }} View</span>
+      </div>
+      <div class="image" v-if="show">
         <img
-          src="../../assets/img/screen-preview.svg"
+          v-lazy="'img/screen-preview.svg'"
           alt=""
           data-aos="fade-up"
           data-aos-duration="1000"
@@ -20,7 +23,35 @@
           >
             <swiper-slide v-for="item in portfolio" :key="item">
               <a href="">
-                <img src="../../assets/img/portfolio-2.jpg" :alt="item.name" />
+                <div class="image-scroll">
+                  <img v-lazy="'img/badaal-design.png'" :alt="item.name" />
+                </div>
+                <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
+              </a>
+            </swiper-slide>
+          </swiper>
+        </div>
+      </div>
+      <div class="image mobile" v-else>
+        <img
+          v-lazy="'img/preview-phone.png'"
+          alt=""
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        />
+        <div class="slide-preview">
+          <swiper
+            class="swiper"
+            :slides-per-view="1"
+            :space-between="50"
+            navigation
+            :speed="1000"
+          >
+            <swiper-slide v-for="item in portfolio" :key="item">
+              <a href="">
+                <div class="image-scroll">
+                  <img v-lazy="'img/badaal-design-mob.png'" :alt="item.name" />
+                </div>
                 <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
               </a>
             </swiper-slide>
@@ -31,47 +62,6 @@
   </div>
   <!-- End Portfolio -->
 </template>
-<style scoped>
-/* Start Portfolio */
-.port {
-  background-color: var(--main-color);
-}
-.portfolios {
-  border-top-left-radius: 200px;
-  background-color: var(--secondary-color);
-}
-.portfolios,
-.contacts {
-  overflow: hidden;
-}
-.portfolios .image {
-  width: 70%;
-  margin: 0 auto;
-  position: relative;
-}
-@media (max-width: 767.98px) {
-  .portfolios .image {
-    width: 100%;
-  }
-}
-.portfolios .image img {
-  max-width: 100%;
-}
-.portfolios .slide-preview {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -64%);
-  width: 82%;
-  height: 76%;
-}
-.portfolios .slide-preview img {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-/* End Portfolio */
-</style>
 <script>
 import SwiperCore, { Navigation } from "swiper";
 // Import Swiper Vue.js components
@@ -84,12 +74,18 @@ SwiperCore.use([Navigation]);
 export default {
   name: "portfolio",
   data() {
-    return {};
+    return {
+      show: true,
+    };
   },
   props: ["portfolio"],
   components: { Swiper, SwiperSlide },
   computed: {},
-  methods: {},
+  methods: {
+    toggle() {
+      this.show = !this.show;
+    },
+  },
   mounted() {},
 };
 </script>
