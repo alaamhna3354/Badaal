@@ -24,9 +24,9 @@
             <swiper-slide v-for="item in portfolio" :key="item">
               <a href="">
                 <div class="image-scroll">
-                  <img v-lazy="'img/badaal-design.png'" :alt="item.name" />
+                  <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
                 </div>
-                <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
+                <!--  :src=" 'img/badaal-design.png'" -->
               </a>
             </swiper-slide>
           </swiper>
@@ -50,9 +50,9 @@
             <swiper-slide v-for="item in portfolio" :key="item">
               <a href="">
                 <div class="image-scroll">
-                  <img v-lazy="'img/badaal-design-mob.png'" :alt="item.name" />
+                  <img v-lazy="`http://badaelonline.com/backend/public/${item.cover}`" :alt="item.name" />
                 </div>
-                <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
+                <!--  :src="'img/badaal-design-mob.png'" -->
               </a>
             </swiper-slide>
           </swiper>

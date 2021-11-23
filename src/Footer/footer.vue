@@ -5,12 +5,15 @@
       <div class="top-footer">
                 <div class="left-social">
         <div class="logo">
-          <a href="#header"> <img v-lazy="'img/Logo.svg'" alt="" /></a>
+          <a href="#header"> <img v-lazy="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></a>
         </div>
         <div class="social">
-          <i class="fab fa-youtube"></i>
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-twitter"></i>
+         <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
+         <a :href="general.facebook"><i class="fab fa-facebook-f"></i></a>
+         <a :href="general.twitter"><i class="fab fa-twitter"></i></a>
+         <a :href="general.instagram"><i class="fab fa-instagram"></i></a>
+        
+         
         </div>
       </div>
       </div>
@@ -40,8 +43,14 @@
       </ul>
 
     </div>
+    <div class="address">
+      {{general.address1}} - {{general.address2}} <br>
+      {{general.phone}} <br>
+     <a :href="general.email">{{general.email}}</a> 
+    </div>
     <div class="bottom-footer">
-      <div>الحقوق محفوظة © 2021 البدائل. جميع الحقوق محفوظة.</div>
+ 
+      <div> {{general.meta_desc}} © 2021 </div>
     </div>
   </div>
   <!-- End Footer -->
@@ -144,6 +153,10 @@
     border-bottom: 2px solid #fff;
     padding: 25px 0;
 }
+.left-social a{
+  text-decoration: none;
+  color: #fff;
+}
 .left-social i {
   transition: var(--main-duration);
   cursor: pointer;
@@ -160,6 +173,18 @@
   font-weight: bold;
   color: var(--main-color);
 }
+.footer .address{
+  padding: 15px 0;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+font-size: 14px;
+}
+.footer .address a{
+  /* text-decoration: none; */
+  color: #fff;
+}
 .footer .bottom-footer {
   display: flex;
   justify-content: flex-end;
@@ -170,9 +195,17 @@
 /* End Footer */
 </style>
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "footer",
   components: {},
-  mounted() {},
+      computed: {
+    ...mapState([
+        'general',
+    ]),
+    },
+  mounted() {
+      this.$store.dispatch('loadHome');
+  },
 };
 </script>

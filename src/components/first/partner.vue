@@ -13,12 +13,12 @@
         :speed="1000"
         :breakpoints="breakpoints"
       >
-        <swiper-slide v-for="item in partner" :key="item">
+        <swiper-slide v-for="item in partner" :key="item" style="width:auto">
           <a :href="item.link">
-            <img v-lazy="item.cover" :alt="item.name" />
+            <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
+            <h3>{{item.name}}</h3>
             <!-- <img v-lazy="'img/brand.png'" :alt="item.name" /> -->
           </a>
-          <!--  :src="`http://badaelonline.com/backend/public/${item.cover}`" -->
         </swiper-slide>
       </swiper>
     </div>
@@ -40,7 +40,7 @@ export default {
       breakpoints: {
         300: {
           // when window width from 300px to 576px
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 50,
         },
         576: {

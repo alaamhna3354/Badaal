@@ -1,8 +1,8 @@
 <template>
-  <div class="header">
+  <div class="header" :general="general">
     <div class="over-lay"></div>
     <div class="container">
-      <div class="logo"><img v-lazy="'img/Logo.svg'" alt="" /></div>
+      <div class="logo"><img v-lazy="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></div>
       <div class="nav">
         <router-link to="/">Home</router-link>
       </div>
@@ -78,6 +78,7 @@
   align-items: center;
   position: relative;
   z-index: 2;
+  min-height: 75px;
 }
 .header .logo {
   width: 100px;
@@ -230,10 +231,17 @@
 /* End Header */
 </style>
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "top",
   components: {},
+    computed: {
+    ...mapState([
+        'general',
+    ]),
+    },
   mounted() {
+     this.$store.dispatch('loadHome');
     window.addEventListener("click", function (e) {
       if (document.getElementById("links").contains(e.target)) {
         document.getElementById("ul_links").classList.toggle("block");

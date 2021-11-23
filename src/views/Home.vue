@@ -284,7 +284,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 SwiperCore.use([Navigation, Parallax]);
-import axios from "axios";
+// import axios from "axios";
+import { mapState } from 'vuex';
 import { defineAsyncComponent } from "vue";
 import { defineComponent } from "vue";
 import { VueDraggableNext } from "vue-draggable-next";
@@ -403,13 +404,6 @@ export default defineComponent({
         { name: "First_Faq", id: 9 },
         { name: "First_Contact", id: 10 },
       ],
-      general: [],
-      banner: [],
-      about: [],
-      blog: [],
-      portfolio: [],
-      partner: [],
-      service: [],
       main: "",
       secondary: "",
       titleSection: "",
@@ -449,26 +443,18 @@ export default defineComponent({
         this.roots.titleSection_color
       );
     },
-    async fetch() {
-      var self = this;
-      await axios
-        .get(`http://badaelonline.com/backend/public/`)
-        .then((res) => {
-          self.general = res.data.data.general;
-          self.banner = res.data.data.banner;
-          self.about = res.data.data.about;
-          self.blog = res.data.data.lpost;
-          self.portfolio = res.data.data.portfolio;
-          self.partner = res.data.data.partner;
-          self.service = res.data.data.service;
-          console.log("general: ", res.data.data.general);
-        })
-        .catch(function (error) {
-          console.warn("Error fetch home ", error.toJSON());
-        });
-    },
+
   },
   computed: {
+    ...mapState([
+        // 'general',
+        'banner',
+        'about',   
+        'blog',
+        'portfolio',
+        'partner',
+        'service',
+    ]),
     Headerswitch: {
       get() {
         return this.$store.state.Headerswitch;
@@ -487,6 +473,7 @@ export default defineComponent({
     },
   },
   mounted() {
+     this.$store.dispatch('loadHome');
     // this.getJson();
     document.documentElement.style.setProperty(
       "--white-color",
@@ -513,7 +500,7 @@ export default defineComponent({
       this.roots.main_duration
     );
     // reqeust api
-    this.fetch();
+
     // open and close setting
     window.addEventListener("click", function (e) {
       if (document.getElementById("setting").contains(e.target)) {

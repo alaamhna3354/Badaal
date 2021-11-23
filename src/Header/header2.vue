@@ -1,16 +1,15 @@
 <template>
   <div class="header">
-
     <div class="container">
-      <div class="logo"><img v-lazy="'img/Logo.svg'" alt="" /></div>
-      <div class="nav"><a href="#about">من نحن</a></div>
-      <div class="nav"><a href="#blog">مقالات</a></div>
-      <div class="nav"><a href="#portfolio">أعمالنا</a></div>
-      <div class="nav"><a href="#partner">علامات تجارية</a></div>
-      <div class="nav"><a href="#service">خدماتنا</a></div>
-      <div class="nav"><a href="#testimonials">عملائنا</a></div>
-      <div class="nav"><a href="#team">فريقنا</a></div>
-      <div class="nav"><a href="#contact">اتصل بنا</a></div>
+      <div class="logo"><img v-lazy="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></div>
+      <div class="nav"><router-link to="/">Home</router-link></div>
+      <div class="nav"><router-link to="/about">About</router-link></div>
+      <div class="nav"><router-link to="/Services">Srvices</router-link></div>
+      <div class="nav"><router-link to="/Portfolio">Portfolio</router-link></div>
+      <div class="nav"><router-link to="/Blog">Blog</router-link></div>
+      <!-- <div class="nav"><router-link to="/testimonials">testimonials</router-link></div>
+      <div class="nav"><router-link to="/team">team</router-link></div>
+      <div class="nav"><router-link to="/contact">contact</router-link></div> -->
       <div class="links" id="links">
         <ul class="menu">
           <li>
@@ -21,14 +20,14 @@
             </span>
 
             <ul id="ul_links">
-              <li><a href="#about">من نحن</a></li>
-              <li><a href="#blog">مقالات</a></li>
-              <li><a href="#portfolio">أعمالنا</a></li>
-              <li><a href="#partner">علامات تجارية</a></li>
-              <li><a href="#service">خدماتنا</a></li>
-              <li><a href="#testimonials">عملائنا</a></li>
-              <li><a href="#team">فريقنا</a></li>
-              <li><a href="#contact">اتصل بنا</a></li>
+              <li><router-link to="/">Home</router-link></li>
+              <li><router-link to="/about">About</router-link></li>
+              <li><router-link to="/Srvices">Srvices</router-link></li>
+              <li><router-link to="/Portfolio">Portfolio</router-link></li>
+              <li><router-link to="/Blog">Blog</router-link></li>
+              <!-- <li><router-link to="/testimonials">testimonials</router-link></li>
+              <li><router-link to="/team">team</router-link></li>
+              <li><router-link to="/contact">contact</router-link></li> -->
             </ul>
           </li>
         </ul>
@@ -40,8 +39,8 @@
 /* Start Header */
 .header {
   padding: 10px;
-  background: transparent;
-  position: absolute;
+  background: #49a0c48c;
+  position: fixed;
   z-index: 20;
   width: 100%;
 }
@@ -50,6 +49,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #fff;
+  min-height: 60px;
 }
 .header .logo {
   width: 100px;
@@ -72,13 +72,18 @@
   content: "";
 width: 0;
 height: 0;
-background-color: var(--titleSection-color);
+background-color: var(--main-color);
 position: absolute;
 bottom: -27px;
 transition: var(--main-duration);
 border-radius: 50%;
 left: 50%;
 transform: translateX(-50%);
+  box-shadow: 0 0 7px var(--main-color),
+    0 0 10px var(--main-color), 0 0 21px var(--main-color),
+    0 0 42px var(--main-color), 0 0 82px var(--main-color),
+    0 0 92px var(--main-color), 0 0 102px var(--main-color),
+    0 0 151px var(--main-color);
 }
 .header .nav a {
   text-decoration: none;
@@ -90,7 +95,11 @@ transform: translateX(-50%);
   height: 10px;
 }
 .header .nav:hover a {
-  color: var(--titleSection-color);
+   text-shadow: 0 0 7px var(--titleSection-color),
+    0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
+    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color),
+    0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
+    0 0 151px var(--titleSection-color);
 }
 .header .links:hover span:nth-child(2) {
   width: 100%;
@@ -197,10 +206,17 @@ transform: translateX(-50%);
 /* End Header */
 </style>
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "top",
   components: {},
+    computed: {
+    ...mapState([
+        'general',
+    ]),
+    },
   mounted() {
+     this.$store.dispatch('loadHome');
     window.addEventListener("click", function (e) {
       if (document.getElementById("links").contains(e.target)) {
         document.getElementById("ul_links").classList.toggle("block");

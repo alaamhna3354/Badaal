@@ -38,7 +38,7 @@
             :data-swiper-parallax="parallaxAmount"
             :data-swiper-parallax-opacity="0.5"
           >
-            <img v-lazy="item.cover" />
+            <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" />
           </div>
         </a>
       </swiper-slide>
