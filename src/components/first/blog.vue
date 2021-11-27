@@ -11,7 +11,7 @@
           >
             <div class="card colum-card">
               <div class="card-body">
-                <img v-lazy="'https://s15.postimg.cc/temvv7u4r/recipe.jpg'" alt="">
+                <img  v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" alt="">
                 <span class="card-number subtle">
                   Viewer
                   <span class="card-number card-circle subtle">

@@ -2,7 +2,9 @@
   <!-- Start Portfolio -->
   <div class="port">
     <div class="portfolios">
-      <h2 class="special-heading">Portfolio</h2>
+      <div class="main-heading">
+      <h2>Portfolios</h2>
+      </div>
       <div class="change-view">
         <span @click="toggle">Show {{ show ? "Mobile" : "Disktop" }} View</span>
       </div>
@@ -17,7 +19,6 @@
           <swiper
             class="swiper"
             :slides-per-view="1"
-            :space-between="50"
             navigation
             :speed="1000"
           >
@@ -26,7 +27,7 @@
                 <div class="image-scroll">
                   <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
                 </div>
-                <!--  :src=" 'img/badaal-design.png'" -->
+                <!-- :src=" 'img/badaal-design.png'" v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" -->
               </a>
             </swiper-slide>
           </swiper>
@@ -43,14 +44,13 @@
           <swiper
             class="swiper"
             :slides-per-view="1"
-            :space-between="50"
             navigation
             :speed="1000"
           >
             <swiper-slide v-for="item in portfolio" :key="item">
               <a href="">
                 <div class="image-scroll">
-                  <img v-lazy="`http://badaelonline.com/backend/public/${item.cover}`" :alt="item.name" />
+                  <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
                 </div>
                 <!--  :src="'img/badaal-design-mob.png'" -->
               </a>
@@ -89,3 +89,19 @@ export default {
   mounted() {},
 };
 </script>
+<style lang="scss" scoped>
+$secondryColor: #286f82;
+.main-heading {
+  text-align: center;
+  h2 {
+    color: #1abc9c;
+    &::before {
+      background-color: #1abc9c;
+    }
+    &::after {
+      border: 2px solid #1abc9c;
+      background-color: #2c4755;
+    }
+  }
+}
+</style>

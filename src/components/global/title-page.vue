@@ -22,11 +22,11 @@
   font-weight: bold;
   font-size: 20px;
 
-  text-shadow: 0 0 7px #04a7f8, 0 0 10px #04a7f8, 0 0 21px #04a7f8,
-    0 0 42px #04a7f8, 0 0 82px #04a7f8, 0 0 92px #04a7f8, 0 0 102px #04a7f8,
-    0 0 151px #04a7f8;
+  text-shadow: 0 0 7px var(--titleSection-color), 0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
+    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color), 0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
+    0 0 151px var(--titleSection-color);
   letter-spacing: 0.1em;
-  color: #04a7f8;
+  color: var(--titleSection-color);
   position: relative;
   @media (max-width: 568px) {
     justify-content: space-around;

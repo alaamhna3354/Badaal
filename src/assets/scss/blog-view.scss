@@ -1,33 +1,90 @@
+$mainColor: #1abc9c;
+$secondryColor: #286f82;
+$pColor: #a2a2a2;
+$sectionPadding:100px;
+$tranpaerntColor: #0f748fba;
 // Start Blog
 .blog-view {
   padding: 50px 0;
   overflow: hidden;
-  .blog-item {
-    width: 80%;
+
+  .shuffle{
     display: flex;
-    margin: 0 auto 50px;
+    justify-content: center;
+    margin-bottom: 50px;
+    li{
+      cursor: pointer;
+      margin: 0 2px;
+      padding:5px 10px;
+      border: 1px solid #eee;
+      transition: .5s;
+      &:hover{
+        background-color: $mainColor;
+        color: #fff;
+      }
+      &.active {
+        background-color: $mainColor;
+        color: #fff;
+      }
+    }
+  }
+  .content-blog{
+    display: flex;
     justify-content: space-around;
-    padding: 20px;
-    box-shadow: 3px 3px 25px #888;
-    @media (max-width: 767px) {
-      display: grid;
-      margin: 0 auto 50px;
-    }
-  }
-  .blog-img {
-    width: 300px;
-    height: 300px;
-    img {
-      max-width: 100%;
-    }
-  }
-  .blog-content {
-    display: grid;
-    width: 60%;
-    @media (max-width: 767px) {
-      width: 100%;
-      padding: 5px;
-    }
-  }
+    flex-wrap: wrap; 
+     .blog-item{
+       width: 500px;
+       transition: all .5s;
+       border: 1px solid #ddd;
+       padding: 25px;
+       .image{
+         display: flex;
+         justify-content: center;
+         img{
+          width: 100%;
+         }
+       }
+       .info-content{
+        display: grid;
+        gap: 25px;
+         h3{
+          color: #444847;
+          text-shadow: 1px 8px 5px #575e5c;
+          font-size: 25px;
+         }
+         .title{
+          color: #3e3e3e;
+         }
+         .desc{
+          opacity: .7;
+         }
+         .utility-list{
+           display: flex;
+           li{
+             span{
+              padding: 5px;
+              i{
+                color: $mainColor;
+              }
+             }
+             
+           }
+         }
+       }
+     }
+   }
+}
+.blog-enter {
+  transform: scale(0.5) translatey(-80px);
+  opacity:0;
+}
+.blog-leave-to{
+  transform: translatey(30px);
+  opacity:0;
+}
+.blog-leave-active {
+  position: absolute;
+  z-index:-1;
 }
 // End Blog
+

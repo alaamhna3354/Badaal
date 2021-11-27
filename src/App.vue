@@ -32,6 +32,8 @@ export default {
 };
 </script>
 <style lang="scss">
+
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -48,11 +50,16 @@ ul {
   list-style: none;
   padding: 0;
 }
+$mainColor: #1abc9c;
+$secondryColor: #286f82;
+$pColor: #a2a2a2;
+$sectionPadding: 100px;
+$tranpaerntColor: #0f748fba;
 :root {
   --white-color: #fff;
   --main-color: #e1f0f9;
   --secondary-color: #2c4755;
-  --titleSection-color: #1daad2;
+  --titleSection-color: #1abc9c;
   --section-padding: 50px;
   --main-duration: 0.5s;
 }
@@ -90,11 +97,7 @@ ul {
 /* End Global Rules */
 /* Start Components */
 // Varibles
-$mainColor: #19c8fa;
-$secondryColor: #286f82;
-$pColor: #a2a2a2;
-$sectionPadding: 100px;
-$tranpaerntColor: #0f748fba;
+
 // global component
 .main-heading {
   text-align: center;

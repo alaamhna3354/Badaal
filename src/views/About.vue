@@ -1,15 +1,93 @@
 <template>
   <!-- Start about -->
-  <div class="about-view">
-    <TitlePage :name="$route.name" :path="$route.name" />
-    <div class="container" :about="about" v-if="about.length > 0">
+     <TitlePage :name="$route.name" :path="$route.name" />
+  <div class="about-view" :about="about">
+    <div class="container">
       <div class="text">
         <h1>{{ about.title }}</h1>
         <p>{{ about.subject }}</p>
       </div>
-      <p class="right" v-html="about.desc"></p>
+      <swiper
+      class="parallax-slider"
+      :navigation="{ nextEl: '.nextArrow', prevEl: '.prevArrow' }"
+      :speed="1500"
+      parallax
+      grabCursor
+      @swiper="onSwiperInitialized"
+    >
+      <div class="parallax-slider-navigation">
+        <div class="nav-indicator prevArrow">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </div>
+        <div class="nav-indicator nextArrow">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <swiper-slide class="parallax-slide">
+          <div style="width: 250px;"
+            class="parallax-slide-image"
+            :data-swiper-parallax="parallaxAmount"
+            :data-swiper-parallax-opacity="0.5"
+          >
+            <img  style="max-width: 100%;" v-lazy="`img/manger.jpg`" />
+          </div>
+      </swiper-slide>
+            <swiper-slide class="parallax-slide">
+         <div style="width: 250px;"
+            class="parallax-slide-image"
+            :data-swiper-parallax="parallaxAmount"
+            :data-swiper-parallax-opacity="0.5"
+          >
+            <img style="max-width: 100%;" v-lazy="`img/manger.jpg`" />
+          </div>
+      </swiper-slide>
+            <swiper-slide class="parallax-slide">
+         <div style="width: 250px;"
+            class="parallax-slide-image"
+            :data-swiper-parallax="parallaxAmount"
+            :data-swiper-parallax-opacity="0.5"
+          >
+            <img style="max-width: 100%;" v-lazy="`img/manger.jpg`" />
+          </div>
+      </swiper-slide>
+    </swiper>
     </div>
-    <Unavailble :name="'About'" v-else />
+    <!-- Our Skills -->
+<!--    <div class="main-heading">
+                <h2>Our Skills</h2>
+            </div> -->
+       <div class="skills" id="skills">
+        <div class="container">
+          <p class="right" v-html="about.desc"></p>
+            <div class="contain">
+         
+                <div class="prog-holer">
+                    <h4>Html</h4>
+                    <div class="prog">
+                        <span style=" width: 0%;" data-progress="90%"></span>
+                    </div>
+                </div>
+                <div class="prog-holer">
+                    <h4>Css</h4>
+                    <div class="prog">
+                        <span style=" width: 0%;" data-progress="95%"></span>
+                    </div>
+                </div>
+                <div class="prog-holer">
+                    <h4>JavaScript</h4>
+                    <div class="prog">
+                        <span style=" width: 0%;" data-progress="85%"></span>
+                    </div>
+                </div>
+                <div class="prog-holer">
+                    <h4>Vue.Js</h4>
+                    <div class="prog">
+                        <span style=" width: 0%;" data-progress="80%"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- End about -->
     <!-- Start Team -->
     <div class="teams" v-if="team.length > 0">
@@ -17,7 +95,7 @@
       <div class="container">
         <div class="our-team" v-for="item in team" :key="item">
           <div class="picture">
-            <img class="img-fluid" v-lazy="item.photo" />
+            <img class="img-fluid" v-lazy="`http://badaelonline.com/backend/public/storage/${item.photo}`" />
             <!-- v-lazy="'img/manger.jpg'" -->
           </div>
           <div class="team-content">
@@ -62,7 +140,7 @@
     <!-- Starr Faq -->
     <section class="faq-section" v-if="faq.length > 0">
       <div class="container">
-        <div class="row">
+        <div class="row" style="width:90%">
           <!-- ***** FAQ Start ***** -->
           <div class="col-md-6 offset-md-3">
             <div class="faq-title text-center pb-3">
@@ -112,6 +190,13 @@
 import axios from "axios";
 import TitlePage from "../components/global/title-page.vue";
 import Unavailble from "../components/global/unavailble.vue";
+import SwiperCore, { Navigation, Parallax } from "swiper";
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+// Import Swiper styles
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+SwiperCore.use([Navigation, Parallax]);
 export default {
   name: "about",
   data() {
@@ -122,9 +207,16 @@ export default {
     };
   },
   props: [""],
-  components: { TitlePage, Unavailble },
-  computed: {},
+  components: { Swiper,SwiperSlide,TitlePage, Unavailble },
+  computed: {
+    parallaxAmount() {
+      return this.parallaxSwiperWidth * 0.5;
+    },
+  },
   methods: {
+     onSwiperInitialized(swiper) {
+      this.parallaxSwiperWidth = swiper.width;
+    },
     async fetch() {
       var self = this;
       await axios
@@ -143,6 +235,17 @@ export default {
   },
   mounted() {
     this.fetch();
+    // animation width of skills
+let sectionSlills = document.getElementById('skills');
+let spans = document.querySelectorAll('.prog span');
+window.onscroll = function () {
+    if ((window.scrollY +200) >= sectionSlills.offsetTop) {
+        spans.forEach((span) => {
+            span.style.width = span.dataset.progress;
+            span.classList.remove('zero')
+        });
+    }
+};
   },
 };
 </script>

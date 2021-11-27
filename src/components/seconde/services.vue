@@ -10,14 +10,13 @@
     <div class="services-menu-container container">
       <div class="services-menu-item" v-for="item in service" :key="item">
         <div class="services-img">
-          <img v-lazy="'img/portfolio-2.jpg'" alt="" />
+         <i :class="`${item.icon }`"></i>
         </div>
         <div class="services-description">
-          <h2 class="services-titile">{{ item.icon }}</h2>
-          <p>
+          <h3>
             {{ item.title }}
-          </p>
-          <p class="services-price">Price: &#8377; 250</p>
+          </h3>
+            <p>{{ item.quote }}</p>
         </div>
       </div>
     </div>

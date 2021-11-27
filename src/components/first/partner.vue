@@ -7,13 +7,11 @@
       </div>
       <swiper
         class="swiper"
-        :slides-per-view="4"
-        :space-between="50"
         :scrollbar="{ draggable: true }"
         :speed="1000"
         :breakpoints="breakpoints"
       >
-        <swiper-slide v-for="item in partner" :key="item" style="width:auto">
+        <swiper-slide v-for="item in partner" :key="item" style="width:250px">
           <a :href="item.link">
             <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
             <h3>{{item.name}}</h3>
@@ -41,28 +39,27 @@ export default {
         300: {
           // when window width from 300px to 576px
           slidesPerView: 1,
-          spaceBetween: 50,
+
         },
         576: {
           // when window width from 576px to 767px
           slidesPerView: 2,
-          spaceBetween: 50,
+
         },
         767: {
           // when window width from 767px to 991px
           slidesPerView: 3,
-          spaceBetween: 50,
+
         },
 
         991: {
           // when window width from 991px to 1200px
           slidesPerView: 4,
-          spaceBetween: 50,
+
         },
         1200: {
           // when window width from 1200px to higher
-          slidesPerView: 4,
-          spaceBetween: 50,
+          slidesPerView: 5,
         },
       },
     };
@@ -71,6 +68,7 @@ export default {
   components: { Swiper, SwiperSlide },
   computed: {},
   methods: {},
-  mounted() {},
+  mounted() {
+  },
 };
 </script>

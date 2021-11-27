@@ -1,4 +1,4 @@
-$mainColor: #19c8fa;
+$mainColor: #1abc9c;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding: 100px;
@@ -10,6 +10,9 @@ $tranpaerntColor: #0f748fba;
     border-top-left-radius: 200px;
     background-color: var(--secondary-color);
     overflow: hidden;
+    @media (max-width: 568.98px) {
+      border-top-left-radius: 100px;
+    }
     .change-view {
       display: flex;
       justify-content: center;
@@ -53,11 +56,14 @@ $tranpaerntColor: #0f748fba;
 
       .image-scroll {
         height: 440px;
-        overflow-x: scroll;
-        scrollbar-width: none;
         img {
           width: 100%;
           border-radius: 10px;
+         
+          transition: all 20s;
+        &:hover{
+          transform: translatey(calc(-100% + 440px));
+        }
         }
       }
     }
@@ -68,7 +74,6 @@ $tranpaerntColor: #0f748fba;
         width: 40%;
       }
       .slide-preview {
-        overflow: visible;
         position: absolute;
         top: 50%;
         left: 50%;

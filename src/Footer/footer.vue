@@ -1,19 +1,23 @@
 <template>
   <!-- Start Footer -->
   <div class="footer">
+    	<transition-group name="back">
+     <div class="back-top">
+   <a href="#logo"><i class="icofont-arrow-up"></i></a> 
+   <a :href="`https://wa.me/${general.phone}`" target="_blank"><button class="botun"><i class="fab fa-whatsapp -f"></i></button></a>
+    </div>
+    </transition-group>
     <div class="over-lay"></div>
       <div class="top-footer">
                 <div class="left-social">
         <div class="logo">
-          <a href="#header"> <img v-lazy="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></a>
+          <a href="#header"> <img :src="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></a>
         </div>
         <div class="social">
          <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
          <a :href="general.facebook"><i class="fab fa-facebook-f"></i></a>
          <a :href="general.twitter"><i class="fab fa-twitter"></i></a>
          <a :href="general.instagram"><i class="fab fa-instagram"></i></a>
-        
-         
         </div>
       </div>
       </div>
@@ -45,7 +49,7 @@
     </div>
     <div class="address">
       {{general.address1}} - {{general.address2}} <br>
-      {{general.phone}} <br>
+     <a :href="`https://wa.me/${general.phone}`" target="_blank"> {{general.phone}} </a><br>
      <a :href="general.email">{{general.email}}</a> 
     </div>
     <div class="bottom-footer">
@@ -56,6 +60,41 @@
   <!-- End Footer -->
 </template>
 <style scoped>
+.back-top {
+    display: grid;
+    place-content: center;
+    position: fixed;
+    z-index: 100;
+    height: 50px;
+    width: 50px;
+    transition: .5s;
+    background-color: #1abc9c;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    display: grid;
+    align-items: center;
+  }
+  .back-top a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+  }
+.back-top button{
+  background-color: #1abc9c;
+  opacity: 0;
+  position: absolute;
+  left: -60px;
+  border-radius: 50%;
+  padding: 7px 4px;
+  top: -40px;
+}
+.back-top button::after{
+  border: 6px solid #1abc9c;
+}
+.back-top:hover button{
+ opacity: 1;
+}
 /* Start Footer */
 .footer {
   background-color: var(--secondary-color);
@@ -86,6 +125,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-gap: 30px;
+}
+@media (max-width:576px) {
+.footer .center-footer {
+  display: block;
+}
 }
 .footer .center-footer h3 {
   margin: 0;
@@ -191,6 +235,11 @@ font-size: 14px;
   padding-inline-end: 50px;
   font-size: 14px;
   margin: 10px 0;
+}
+@media (max-width:568px) {
+.footer .bottom-footer {
+  padding: 0px;
+}
 }
 /* End Footer */
 </style>

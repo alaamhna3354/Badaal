@@ -27,7 +27,7 @@
       </ul>
       <div class="left-social">
         <div class="logo">
-          <a href="#header"> <img v-lazy="'img/Logo.svg'" alt="" /></a>
+          <a href="#header"> <img :src="'img/Logo.svg'" alt="" /></a>
         </div>
         <div class="social">
           <i class="fab fa-youtube"></i>

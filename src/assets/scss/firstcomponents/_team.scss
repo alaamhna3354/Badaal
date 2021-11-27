@@ -1,4 +1,4 @@
-$mainColor: #19c8fa;
+$mainColor: #1abc9c;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding:100px;
@@ -38,7 +38,7 @@ $tranpaerntColor: #0f748fba;
     width: 100%;
     height: 0;
     border-radius: 50%;
-    background-color:  var(--titleSection-color);
+    background-color: $mainColor;
     position: absolute;
     bottom: 135%;
     right: 0;
@@ -57,7 +57,7 @@ $tranpaerntColor: #0f748fba;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color:  var(--titleSection-color);
+    background-color: $mainColor;
     position: absolute;
     top: 0;
     left: 0;
@@ -89,7 +89,7 @@ $tranpaerntColor: #0f748fba;
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color:  var(--titleSection-color);
+    background-color: $mainColor;
     position: absolute;
     bottom: -100px;
     left: 0;
@@ -114,7 +114,7 @@ $tranpaerntColor: #0f748fba;
   }
   
   .our-team .social li a:hover {
-    color:  var(--titleSection-color);
+    color:  $mainColor;
     background-color: var(--white-color);
   }
   /* End teams  */

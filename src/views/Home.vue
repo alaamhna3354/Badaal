@@ -214,7 +214,18 @@
         </swiper-slide>
       </swiper>
     </div>
-    <draggable
+     <component
+          v-for="item in list.slice(0, 5)"
+          :key="item"
+          :is="item.name"
+          :about="about"
+          :banner="banner"
+          :portfolio="portfolio"
+          :partner="partner"
+          :service="service"
+         
+        />
+    <!-- <draggable
       class="dragArea list-group w-full"
       :list="list"
       @change="log"
@@ -226,54 +237,47 @@
         v-for="item in list.slice(0, 5)"
         :key="item"
       >
-        <component
-          :is="item.name"
-          :banner="banner"
-          :portfolio="portfolio"
-          :partner="partner"
-          :service="service"
-          :about="about"
-        />
-      </div>
+   
+      </div> 
 
-      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+     <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
     <component
       :is="firstOrSecondblog"
       id="blog"
       :blog="blog"
       :style="{ order: sorting.blog }"
     />
-    </div> -->
-      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+    </div>
+      <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
    <component
       :is="firstOrSecondtestomonials"
       id="testimonials"
       :style="{ order: sorting.testimonials }"
     />
-    </div> -->
-      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+    </div>
+      <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
   
     <component
       :is="firstOrSecondteam"
       id="team"
       :style="{ order: sorting.team }"
     />
-    </div> -->
-      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+    </div>
+      <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
   <component
       :is="firstOrSecondfaq"
       id="faq"
       :style="{ order: sorting.faq }"
     />
-    </div> -->
-      <!-- <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
+    </div>
+      <div class="list-group-item bg-gray-300 m-1 p-3 rounded-md text-center">
    <component
       :is="firstOrSecondcontact"
       id="contact"
       :style="{ order: sorting.contact }"
     />
-    </div> -->
-    </draggable>
+    </div>
+    </draggable> -->
   </div>
 </template>
 <script>
@@ -396,7 +400,7 @@ export default defineComponent({
         { name: "First_Featuers", id: 1 },
         { name: "First_About", id: 2 },
         { name: "First_Portfolio", id: 3 },
-        { name: "First_Services", id: 4 },
+        { name: "Seconde_Services", id: 4 },
         { name: "First_Partner", id: 5 },
         { name: "First_Blog", id: 6 },
         { name: "First_Testomonials", id: 7 },
@@ -473,32 +477,32 @@ export default defineComponent({
     },
   },
   mounted() {
-     this.$store.dispatch('loadHome');
-    // this.getJson();
-    document.documentElement.style.setProperty(
-      "--white-color",
-      this.roots.white_color
-    );
-    document.documentElement.style.setProperty(
-      "--main-color",
-      this.roots.main_color
-    );
-    document.documentElement.style.setProperty(
-      "--secondary-color",
-      this.roots.secondary_color
-    );
-    document.documentElement.style.setProperty(
-      "--titleSection-color",
-      this.roots.titleSection_color
-    );
-    document.documentElement.style.setProperty(
-      "--section-padding",
-      this.roots.section_padding
-    );
-    document.documentElement.style.setProperty(
-      "--main-duration",
-      this.roots.main_duration
-    );
+    //  this.$store.dispatch('loadHome');
+    // // this.getJson();
+    // document.documentElement.style.setProperty(
+    //   "--white-color",
+    //   this.roots.white_color
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--main-color",
+    //   this.roots.main_color
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--secondary-color",
+    //   this.roots.secondary_color
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--titleSection-color",
+    //   this.roots.titleSection_color
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--section-padding",
+    //   this.roots.section_padding
+    // );
+    // document.documentElement.style.setProperty(
+    //   "--main-duration",
+    //   this.roots.main_duration
+    // );
     // reqeust api
 
     // open and close setting

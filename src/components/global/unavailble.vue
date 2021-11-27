@@ -1,6 +1,6 @@
 <template>
   <div class="unavailble">
-    Sorry!! {{ name }} Section Unavailble Now We will Fix It Soon
+    <!-- Sorry!! {{ name }} Section Unavailble Now We will Fix It Soon -->
   </div>
 </template>
 <style scoped>
@@ -12,6 +12,8 @@
   line-height: 2;
   font-weight: bold;
   opacity: 0.7;
+  width: 100%;
+  height: 200px;
 }
 </style>
 <script>

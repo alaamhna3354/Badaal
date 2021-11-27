@@ -1,4 +1,4 @@
-$mainColor: #19c8fa;
+$mainColor: #1abc9c;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding: 100px;
@@ -6,20 +6,74 @@ $tranpaerntColor: #0f748fba;
 
 // Start about section component
 .about1 {
-  padding: $sectionPadding;
+  padding: $sectionPadding 0;
   overflow: hidden;
   text-align: center;
   .container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    .right {
+    .info{
       width: 50%;
-      /* Extra small devices (portrait phones, less than 576px) */
+      height: 250px;
+      display: grid;
       @media (max-width: 991.98px) {
-        width: 80%;
+        width: 90%;
+        margin-bottom: 50px;
+      }
+      p{
+        width: 90%;
+        opacity: .7;
+        margin: 0;
+      }
+      .botun{
+        background-color: $mainColor;
+        &::after {
+          border: 6px solid $mainColor;
+        }
       }
     }
+    .bubble-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      .contain-bub{
+        height: 150px;
+        display: grid;
+        align-content: inherit;
+        .bubble {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          transition: .5s;
+           i{
+          color: #fff;
+          font-size: 40px;
+        }
+      }
+      h3{
+        opacity: .7;
+        text-shadow: 1px 6px 6px;
+        font-style: italic;
+      }
+    }
+    }
+  }
+}
+@each $num,$color in (1, #e54d26),(2, #016fba),(3, #f5b400),(4, #1abc9c) {
+  .bub#{$num}{
+    background: $color;
+  &:hover{
+    box-shadow: 1px 4px 10px $color;
+    scale: 1.1;
+  }
   }
 }
 // End about

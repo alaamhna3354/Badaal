@@ -10,7 +10,8 @@
     </div>
     <div class="container">
       <div class="has-outline" v-for="item in service" :key="item">
-        <h4>{{ item.title }}</h4>
+       
+        <h4> <i :class="`${item.icon}`"></i>{{ item.title }}</h4>
         <h3>{{ item.quote }}</h3>
       </div>
     </div>
@@ -23,12 +24,12 @@ $secondryColor: #286f82;
 .main-heading {
   text-align: center;
   h2 {
-    color: #fff;
+    color: #1abc9c;
     &::before {
-      background-color: #fff;
+      background-color: #1abc9c;
     }
     &::after {
-      border: 2px solid #fff;
+      border: 2px solid #1abc9c;
       background-color: #2c4755;
     }
   }

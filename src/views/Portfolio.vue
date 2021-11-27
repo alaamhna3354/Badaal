@@ -1,62 +1,74 @@
 <template>
   <!-- Start about -->
-  <div class="portfolio-view">
     <TitlePage :name="$route.name" :path="$route.name" />
-
-    <div class="portfolio" v-if="portfolio.length > 0">
-      <div class="main-heading">
-        <h2>Portfolio</h2>
-      </div>
+  <div class="portfolio-view">
+    <div class="portfolio" >
       <div class="container">
         <ul class="shuffle">
+           <li
+            :class="{ active: currentFilter === 'ALL' }"
+            @click="setFilter('ALL')"
+          >
+          All
+          </li>
           <li
             v-for="(filterItem, index) in pcategories"
             :key="index"
-            :class="{ active: items[index].item }"
-            @click="activeToggle(index)"
+            :class="{ active: currentFilter === filterItem.id }"
+            @click="setFilter(filterItem.id)"
           >
             {{ filterItem.name }}
           </li>
         </ul>
       </div>
-      <div class="imgs-container">
-        <div class="box" v-for="item in portfolio" :key="item">
-          <img v-lazy="item.cover" alt="" />
-          <!-- <img v-lazy="'img/shuffle-01.jpg'" alt="" /> -->
-          <div class="caption">
-            <h4>{{ item.name }}</h4>
-            <p v-html="item.desc"></p>
-          </div>
-        </div>
+<div class="contain">
+  <div class="container">
+	<transition-group class="projects" name="projects" >
+		<div class="project" v-show="currentFilter === project.pcategory_id || currentFilter === 'ALL'"  v-for="project in portfolio" :key="project.id">
+			<div class="project-image" >
+				<img class="image" :src="`http://badaelonline.com/backend/public/storage/${project.cover}`">	
+			</div>
+      <div class="details">
+        <h2>{{project.name}}</h2>
+       
       </div>
+       <div v-html="project.desc" class="desc"></div>
+		</div>
+	</transition-group>
+</div>
+</div>
+
     </div>
-    <Unavailble :name="'Portfolio'" v-else />
+ 
   </div>
   <!-- End about -->
 </template>
 <script>
 import axios from "axios";
 import TitlePage from "../components/global/title-page.vue";
-import Unavailble from "../components/global/unavailble.vue";
 export default {
   name: "about",
   data() {
     return {
       portfolio: [],
       pcategories: [],
+      currentFilter: 'ALL',
       items: [
         { item: true },
         { item: false },
         { item: false },
         { item: false },
         { item: false },
-      ],
+		        ]
     };
   },
   props: [""],
-  components: { TitlePage, Unavailble },
+  components: { TitlePage,  },
   computed: {},
   methods: {
+  setFilter(filter) {
+			this.currentFilter = filter;
+		},
     async fetch() {
       var self = this;
       await axios
@@ -78,12 +90,6 @@ export default {
         .catch(function (error) {
           console.warn("Error pcategories ", error.toJSON());
         });
-    },
-    activeToggle(id) {
-      for (var i = 0; i < this.items.length; i++) {
-        this.items[i].item = false;
-      }
-      this.items[id].item = true;
     },
   },
   mounted() {

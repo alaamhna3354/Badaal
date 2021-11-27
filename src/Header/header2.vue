@@ -1,12 +1,28 @@
 <template>
   <div class="header">
+    <div class="container top">
+      <div class="conta">
+     call us:  <a :href="`https://wa.me/${general.phone}`" target="_blank">{{general.phone}}</a> -
+     <a :href="general.email">{{general.email}}</a> 
+      </div>
+      <div class="social-top">
+         <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
+         <a :href="general.facebook"><i class="fab fa-facebook-f"></i></a>
+         <a :href="general.twitter"><i class="fab fa-twitter"></i></a>
+         <a :href="general.instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    </div>
     <div class="container">
-      <div class="logo"><img v-lazy="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></div>
+      <div class="logo" id="logo">
+        <router-link to="/">
+        <img :src="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" />
+        </router-link>
+        </div>
       <div class="nav"><router-link to="/">Home</router-link></div>
       <div class="nav"><router-link to="/about">About</router-link></div>
-      <div class="nav"><router-link to="/Services">Srvices</router-link></div>
-      <div class="nav"><router-link to="/Portfolio">Portfolio</router-link></div>
-      <div class="nav"><router-link to="/Blog">Blog</router-link></div>
+      <div class="nav"><router-link to="/services">Services</router-link></div>
+      <div class="nav"><router-link to="/portfolio">Portfolio</router-link></div>
+      <div class="nav"><router-link to="/blog">Blog</router-link></div>
       <!-- <div class="nav"><router-link to="/testimonials">testimonials</router-link></div>
       <div class="nav"><router-link to="/team">team</router-link></div>
       <div class="nav"><router-link to="/contact">contact</router-link></div> -->
@@ -22,7 +38,7 @@
             <ul id="ul_links">
               <li><router-link to="/">Home</router-link></li>
               <li><router-link to="/about">About</router-link></li>
-              <li><router-link to="/Srvices">Srvices</router-link></li>
+              <li><router-link to="/Srvices">Services</router-link></li>
               <li><router-link to="/Portfolio">Portfolio</router-link></li>
               <li><router-link to="/Blog">Blog</router-link></li>
               <!-- <li><router-link to="/testimonials">testimonials</router-link></li>
@@ -38,25 +54,65 @@
 <style scoped>
 /* Start Header */
 .header {
-  padding: 10px;
-  background: #49a0c48c;
-  position: fixed;
-  z-index: 20;
+  padding: 0;
+  background: var(--secondary-color);
   width: 100%;
+}
+@media (max-width:568px) {
+.header {
+  padding: 15px;
+}
+}
+.header .top{
+  min-height: 35px !important;
+  position: relative;
+}
+.header .top::before{
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  background: #ffffff2e;
+}
+.header .conta{
+  color: #fff;
+  font-size: 12px;
+}
+.header .conta a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px !important;
+}
+.header .top .social-top{
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+.header .top a{
+  color: #fff;
+  font-size: 14px;
+  transition: var(--main-duration);
+}
+.header .top a:hover{
+  color: var(--titleSection-color);
 }
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #fff;
   min-height: 60px;
 }
 .header .logo {
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   display: grid;
+  height: 70px;
+  align-content: center;
+  max-height: 75px;
 }
 .header .logo img {
+  height: 100%;
   width: 100%;
 }
 .header .links {
@@ -70,35 +126,41 @@
 }
 .header .nav::before {
   content: "";
-width: 0;
-height: 0;
-background-color: var(--main-color);
-position: absolute;
-bottom: -27px;
-transition: var(--main-duration);
-border-radius: 50%;
-left: 50%;
-transform: translateX(-50%);
-  box-shadow: 0 0 7px var(--main-color),
-    0 0 10px var(--main-color), 0 0 21px var(--main-color),
-    0 0 42px var(--main-color), 0 0 82px var(--main-color),
-    0 0 92px var(--main-color), 0 0 102px var(--main-color),
-    0 0 151px var(--main-color);
+  width: 0;
+  height: 0;
+  background-color:var(--titleSection-color);
+  position: absolute;
+  bottom: -26px;
+  transition: var(--main-duration);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header .nav::after {
+  content: '';
+  position: absolute;
+  border-width: 0;
+  border-style: solid;
+  border-color:  transparent transparent var(--titleSection-color) transparent;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: var(--main-duration);
 }
 .header .nav a {
   text-decoration: none;
-  font-weight: 800;
-  color: var(--white-color);
+  color: #fff;
+  
 }
 .header .nav:hover::before {
-  width: 10px;
-  height: 10px;
+   width: 90px;
+  height: 3px;
+}
+.header .nav:hover::after {
+  border-width: 8px;
 }
 .header .nav:hover a {
-   text-shadow: 0 0 7px var(--titleSection-color),
-    0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
-    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color),
-    0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
+   text-shadow: 0 0 7px var(--titleSection-color), 0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
+    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color), 0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
     0 0 151px var(--titleSection-color);
 }
 .header .links:hover span:nth-child(2) {
@@ -145,7 +207,7 @@ transform: translateX(-50%);
 .header .menu ul {
   background: #ddd;
   height: 0;
-  right: 10px;
+  right: 35px;
   opacity: 0;
   position: absolute;
   transition: var(--main-duration);
@@ -163,6 +225,7 @@ transform: translateX(-50%);
   height: auto !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
+  right: 10px !important;
 }
 .header .menu ul li {
   line-height: 1.5;
