@@ -27,12 +27,17 @@ export default {
     ...mapState(["Headerswitch", "Footerswitch"]),
   },
   mounted() {
-    // set root css
+var body =  document.getElementById("body");
+    if( localStorage.getItem('lang') == 'ar'){
+body.style.setProperty("--main-dirction","rtl")
+}
+else{
+body.style.setProperty("--main-dirction","ltr");
+}
   },
 };
 </script>
 <style lang="scss">
-
 
 * {
   -webkit-box-sizing: border-box;
@@ -45,21 +50,25 @@ html {
 body {
   font-family: "Amiri", serif;
   margin: 0;
+  direction: var(--main-dirction);
 }
 ul {
   list-style: none;
   padding: 0;
 }
-$mainColor: #1abc9c;
+$mainColor: #1daad2;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding: 100px;
 $tranpaerntColor: #0f748fba;
+$dirction :rtl;
+$left :left;
 :root {
+  --swiper-navigation-size: 44px;
   --white-color: #fff;
   --main-color: #e1f0f9;
   --secondary-color: #2c4755;
-  --titleSection-color: #1abc9c;
+  --titleSection-color: #1daad2;
   --section-padding: 50px;
   --main-duration: 0.5s;
 }
@@ -69,6 +78,51 @@ $tranpaerntColor: #0f748fba;
 /* Start Variables */
 
 /* End Variables */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+  }
+  &:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
+  }
+}
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  &:after {
+    content: 'prev';
+  }
+  left: 10px;
+  right: auto;
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+  &:after {
+    content: 'next';
+  }
+  right: 10px;
+  left: auto;
+}
+
 /* Start Global Rules */
 .container {
   padding-left: 15px;

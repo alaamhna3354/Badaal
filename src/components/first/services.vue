@@ -2,7 +2,7 @@
   <!-- Start services3 -->
   <div class="services3" v-if="service.length > 0">
     <div class="main-heading">
-      <h2>Services</h2>
+      <h2>{{ $t('Services') }}</h2>
       <p>
         Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris
         blandit aliquet elit, eget tincidunt.

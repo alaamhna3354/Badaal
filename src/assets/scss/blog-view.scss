@@ -1,4 +1,4 @@
-$mainColor: #1abc9c;
+$mainColor: #1daad2;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding:100px;
@@ -11,10 +11,11 @@ $tranpaerntColor: #0f748fba;
   .shuffle{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 50px;
     li{
       cursor: pointer;
-      margin: 0 2px;
+      margin: 1px 2px;
       padding:5px 10px;
       border: 1px solid #eee;
       transition: .5s;
@@ -40,16 +41,30 @@ $tranpaerntColor: #0f748fba;
        .image{
          display: flex;
          justify-content: center;
+         position: relative;
          img{
           width: 100%;
          }
        }
        .info-content{
+        .read{
+          button{
+            border: none;
+            background-color: $mainColor;
+            padding: 5px 8px;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+            &:hover{
+              background-color: $secondryColor;
+              transition: .5s;
+            }
+          }
+        }
         display: grid;
         gap: 25px;
          h3{
           color: #444847;
-          text-shadow: 1px 8px 5px #575e5c;
           font-size: 25px;
          }
          .title{
@@ -70,19 +85,20 @@ $tranpaerntColor: #0f748fba;
              
            }
          }
+       
        }
      }
    }
 }
-.blog-enter {
+.blogs-enter {
   transform: scale(0.5) translatey(-80px);
   opacity:0;
 }
-.blog-leave-to{
+.blogs-leave-to{
   transform: translatey(30px);
   opacity:0;
 }
-.blog-leave-active {
+.blogs-leave-active {
   position: absolute;
   z-index:-1;
 }

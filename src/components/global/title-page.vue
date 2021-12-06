@@ -1,6 +1,6 @@
 <template>
   <!-- Start about -->
-  <div class="animate__animated animate__bounce">
+  <div class="contain animate__animated animate__bounce">
     <div class="route-name">
       <span class="left-name">{{ name }}</span>
       <span>Home / {{ path }}</span>
@@ -9,6 +9,7 @@
   <!-- End about -->
 </template>
 <style lang="scss" scoped>
+.contain{ position: relative; z-index: 100;}
 .route-name {
   background: url(../../../public/img/stats.png) no-repeat center;
   background-size: cover;

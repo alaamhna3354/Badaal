@@ -3,12 +3,12 @@
   <div class="port">
     <div class="portfolios">
       <div class="main-heading">
-      <h2>Portfolios</h2>
+      <h2>{{ $t('Portfolio') }}</h2>
       </div>
       <div class="change-view">
         <span @click="toggle">Show {{ show ? "Mobile" : "Disktop" }} View</span>
       </div>
-      <div class="image" v-if="show">
+      <div class="image animate__animated animate__bounceInUp" v-if="show">
         <img
           v-lazy="'img/screen-preview.svg'"
           alt=""
@@ -23,17 +23,17 @@
             :speed="1000"
           >
             <swiper-slide v-for="item in portfolio" :key="item">
-              <a href="">
+            <router-link :to="{ path: `/portfolio` }">
                 <div class="image-scroll">
                   <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
                 </div>
                 <!-- :src=" 'img/badaal-design.png'" v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" -->
-              </a>
+             </router-link>
             </swiper-slide>
           </swiper>
         </div>
       </div>
-      <div class="image mobile" v-else>
+      <div class="image mobile image animate__animated animate__bounceInDown" v-else>
         <img
           v-lazy="'img/preview-phone.png'"
           alt=""
@@ -48,9 +48,9 @@
             :speed="1000"
           >
             <swiper-slide v-for="item in portfolio" :key="item">
-              <a href="">
+              <a :href="item.client">
                 <div class="image-scroll">
-                  <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
+                  <img v-lazy="`${GlobalUrl}/storage/${item.cover}`" :alt="item.name" />
                 </div>
                 <!--  :src="'img/badaal-design-mob.png'" -->
               </a>
@@ -69,8 +69,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
-
 SwiperCore.use([Navigation]);
+import { mapState } from 'vuex';
 export default {
   name: "portfolio",
   data() {
@@ -80,7 +80,11 @@ export default {
   },
   props: ["portfolio"],
   components: { Swiper, SwiperSlide },
-  computed: {},
+  computed: {
+    ...mapState([
+      'GlobalUrl'
+    ])
+  },
   methods: {
     toggle() {
       this.show = !this.show;
@@ -91,15 +95,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 $secondryColor: #286f82;
+$mainColor: #1daad2;
 .main-heading {
   text-align: center;
   h2 {
-    color: #1abc9c;
+    color: $mainColor;
     &::before {
-      background-color: #1abc9c;
+      background-color: $mainColor;
     }
     &::after {
-      border: 2px solid #1abc9c;
+      border: 2px solid $mainColor;
       background-color: #2c4755;
     }
   }

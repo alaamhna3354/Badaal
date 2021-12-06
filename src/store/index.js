@@ -11,6 +11,7 @@ export default createStore({
     portfolio: [],
     partner: [],
     service: [],
+    GlobalUrl : 'https://badaelonline.com/backend/public',
 
   },
   mutations: {
@@ -45,7 +46,7 @@ export default createStore({
   actions: {
     loadHome({ commit }) {
       axios
-          .get(`http://badaelonline.com/backend/public/`)
+          .get(`/`)
           .then((res) => {
               // console.log('Home :', res.data.data);
               let general = res.data.data.general;

@@ -11,10 +11,12 @@
     >
       <div class="parallax-slider-navigation">
         <div class="nav-indicator prevArrow">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+         <i v-if="lang == 'ar'" class="fa fa-arrow-right" aria-hidden="true"></i>
+           <i v-else class="fa fa-arrow-left" aria-hidden="true"></i>
         </div>
         <div class="nav-indicator nextArrow">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+         <i v-if="lang == 'ar'" class="fa fa-arrow-left" aria-hidden="true"></i>
+          <i v-else  class="fa fa-arrow-right" aria-hidden="true"></i>
         </div>
       </div>
       <swiper-slide
@@ -26,10 +28,10 @@
           <div class="text">
             <div class="content">
               <h2>
-                {{ item.title }}
+              {{ about.title }}
               </h2>
               <p>
-                {{ item.desc }}
+                {{ about.subject }}
               </p>
             </div>
           </div>
@@ -38,7 +40,7 @@
             :data-swiper-parallax="parallaxAmount"
             :data-swiper-parallax-opacity="0.5"
           >
-            <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" />
+            <img v-lazy="`${GlobalUrl}/storage/${item.cover}`" />
           </div>
         </a>
       </swiper-slide>
@@ -57,13 +59,13 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 SwiperCore.use([Navigation, Parallax]);
 import Unavailble from "../global/unavailble.vue";
-
+import { mapState } from 'vuex';
 export default {
   name: "featuers",
   data() {
     return {
       parallaxSwiperWidth: 0,
-
+      lang: localStorage.getItem('lang')  ||'en',
       // images: [
       //   { id: 1, imageUrl: "img/stats.png" },
       //   { id: 2, imageUrl: "img/featuers-services.jpg" },
@@ -71,7 +73,7 @@ export default {
       // ],
     };
   },
-  props: ["banner"],
+  props: ["banner","about"],
   components: {
     Swiper,
     SwiperSlide,
@@ -81,6 +83,9 @@ export default {
     parallaxAmount() {
       return this.parallaxSwiperWidth * 0.5;
     },
+    ...mapState([
+      'GlobalUrl'
+    ])
   },
   methods: {
     onSwiperInitialized(swiper) {

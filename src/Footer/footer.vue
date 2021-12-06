@@ -1,17 +1,16 @@
 <template>
   <!-- Start Footer -->
   <div class="footer">
-    	<transition-group name="back">
      <div class="back-top">
-   <a href="#logo"><i class="icofont-arrow-up"></i></a> 
+<i @click="gototop" class="icofont-arrow-up"></i>
    <a :href="`https://wa.me/${general.phone}`" target="_blank"><button class="botun"><i class="fab fa-whatsapp -f"></i></button></a>
     </div>
-    </transition-group>
+
     <div class="over-lay"></div>
       <div class="top-footer">
                 <div class="left-social">
         <div class="logo">
-          <a href="#header"> <img :src="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></a>
+          <a href="#header"> <img v-if="general.logo" :src="`${GlobalUrl}/storage/${general.logo}`" alt="" /></a>
         </div>
         <div class="social">
          <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
@@ -23,43 +22,48 @@
       </div>
     <div class="center-footer">
       <ul>
-        <h3>الشركة</h3>
+        <h3>{{$t('Company')}}</h3>
         <ul>
-          <li><a href="#about"> من نحن</a></li>
-          <li><a href="#service"> الخدمات </a></li>
-          <li><a href="#">الاسئلة الشائعة</a></li>
-          <li><a href="#">التوظيف</a></li>
+          <li><a href="#about">{{$t('About')}}</a></li>
+          <li><a href="#">{{$t('recruitment')}}</a></li>
+          <li>{{general.address1}}</li>
+          <li>{{general.address2}}</li>
         </ul>
       </ul>
       <ul>
-        <h3>تواصل معنا</h3>
+        <h3>{{$t('Contact')}}</h3>
         <ul>
-          <li><a href="#">انضم لنا</a></li>
-          <li><a href="#contact">تواصل معنا</a></li>
+          <li><a href="#">{{$t('Join')}}</a></li>
+          <li><a href="#contact">{{$t('Contact')}}</a></li>
+          <li v-if="general.phone">   <a :href="`https://wa.me/${general.phone}`" target="_blank">
+           {{general.phone.replace(' ','').replace(' ','').replace(' ','')}}
+            </a></li>
+          <li><a :href="general.email">{{general.email}}</a> </li>
+          <!-- <span>{{general.address1}} - {{general.address2}}</span> -->
         </ul>
       </ul>
       <ul>
-        <h3>الأنظمة</h3>
+        <h3>{{$t('Systems')}}</h3>
         <ul>
-          <li>الشروط والأحكام</li>
-          <li>سياسة الخصوصية</li>
+          <li>{{$t('Rule')}}</li>
+          <li>{{$t('policy')}}</li>
         </ul>
       </ul>
-
-    </div>
-    <div class="address">
-      {{general.address1}} - {{general.address2}} <br>
-     <a :href="`https://wa.me/${general.phone}`" target="_blank"> {{general.phone}} </a><br>
-     <a :href="general.email">{{general.email}}</a> 
+  <ul>
+        <ul>
+          <img src="https://namaa-solutions.com/frontend/images/Footer/footer-map.png" alt="">
+        </ul>
+      </ul>
     </div>
     <div class="bottom-footer">
  
-      <div> {{general.meta_desc}} © 2021 </div>
+      <div> {{$t('Copyright')}} </div>
     </div>
   </div>
   <!-- End Footer -->
 </template>
-<style scoped>
+<style lang="scss" scoped>
+$mainColor: #1daad2;
 .back-top {
     display: grid;
     place-content: center;
@@ -68,29 +72,30 @@
     height: 50px;
     width: 50px;
     transition: .5s;
-    background-color: #1abc9c;
+    background-color: $mainColor;
     bottom: 25px;
     right: 25px;
     border-radius: 50%;
     display: grid;
     align-items: center;
   }
-  .back-top a{
-    text-decoration: none;
+  .back-top i{
+    cursor: pointer;
     color: #fff;
     font-size: 30px;
   }
 .back-top button{
-  background-color: #1abc9c;
+  background-color: $mainColor;
   opacity: 0;
   position: absolute;
   left: -60px;
   border-radius: 50%;
-  padding: 7px 4px;
+  padding: 9px 4px;
   top: -40px;
+  transition: .5s;
 }
 .back-top button::after{
-  border: 6px solid #1abc9c;
+  border: 6px solid $mainColor;
 }
 .back-top:hover button{
  opacity: 1;
@@ -99,7 +104,7 @@
 .footer {
   background-color: var(--secondary-color);
   color: var(--white-color);
-  padding: 30px 10px;
+  padding: 0 10px 30px;
   text-align: center;
   font-size: 18px;
   background-image: url(../../public/img/stats.png);
@@ -123,7 +128,7 @@
 }
 .footer .center-footer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 30px;
 }
 @media (max-width:576px) {
@@ -190,12 +195,10 @@
 }
 
 .left-social {
-    display: grid;
-    place-content: center;
+    display: flex;
     width: 90%;
     margin: 0 auto;
     border-bottom: 2px solid #fff;
-    padding: 25px 0;
 }
 .left-social a{
   text-decoration: none;
@@ -207,11 +210,18 @@
   padding: 5px;
 }
 .footer .top-footer .logo {
-  width: 150px;
+  width: 115px;
   cursor: pointer;
+  margin: 0 50px;
 }
+
 .footer .top-footer .logo img {
   width: 100%;
+  height: 100%;
+}
+.footer .top-footer .social{
+  display: flex;
+  align-items: center;
 }
 .footer span {
   font-weight: bold;
@@ -223,7 +233,7 @@
   position: relative;
   z-index: 1;
   line-height: 1.8;
-font-size: 14px;
+  font-size: 14px;
 }
 .footer .address a{
   /* text-decoration: none; */
@@ -231,8 +241,8 @@ font-size: 14px;
 }
 .footer .bottom-footer {
   display: flex;
-  justify-content: flex-end;
-  padding-inline-end: 50px;
+  justify-content: flex-start;
+  padding-inline-start: 80px;
   font-size: 14px;
   margin: 10px 0;
 }
@@ -251,10 +261,17 @@ export default {
       computed: {
     ...mapState([
         'general',
+        'GlobalUrl'
     ]),
+    },
+    methods:{
+         gototop(){
+        window.scrollTo(0, 0);
+   },
     },
   mounted() {
       this.$store.dispatch('loadHome');
+
   },
 };
 </script>

@@ -1,0 +1,33 @@
+{
+    "//header2": "appheader",
+    "call":"Call us:",
+    "Home": "Home",
+    "About": "About Us",
+    "Services": "Services",
+    "Portfolio": "Portfolio",
+    "Blog": "Blog",
+    "Team": "Team",
+    "Partner": "Partner",
+
+    "//first_contact_component": "first_contact_component",
+    "Get_In_Touch":"Get In Touch",
+    "where_we_are":"Where We Are ?",
+    "Send":"Send",
+
+    "//first_team_component": "first_team_component",
+    "more":"Read More",
+
+    "//Footer": "Footer",
+    "Systems":"Systems",
+    "Contact":"Contact Us",
+    "Company":"Company",
+    "Faq":"Faq",
+    "recruitment":"Recruitment",
+    "Join":"Join Us",
+    "Rule":"Terms and Conditions",
+    "policy":"Privacy policy",
+    "Copyright": "Copyright © 2021 Al-Badael Company for Software Solutions. All rights reserved"
+    
+
+}
+    

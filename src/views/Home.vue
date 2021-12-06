@@ -221,7 +221,6 @@
           :about="about"
           :banner="banner"
           :portfolio="portfolio"
-          :partner="partner"
           :service="service"
          
         />
@@ -398,15 +397,15 @@ export default defineComponent({
     return {
       list: [
         { name: "First_Featuers", id: 1 },
-        { name: "First_About", id: 2 },
-        { name: "First_Portfolio", id: 3 },
-        { name: "Seconde_Services", id: 4 },
-        { name: "First_Partner", id: 5 },
-        { name: "First_Blog", id: 6 },
-        { name: "First_Testomonials", id: 7 },
-        { name: "First_Team", id: 8 },
-        { name: "First_Faq", id: 9 },
-        { name: "First_Contact", id: 10 },
+        { name: "First_Portfolio", id: 2 },
+        { name: "Seconde_Services", id: 3 },
+        { name: "First_Team", id: 4 },
+        { name: "First_Contact", id: 5 },
+        { name: "First_About", id: 6 },
+        { name: "First_Blog", id: 7 },
+        { name: "First_Testomonials", id: 8 },
+        { name: "First_Partner", id: 9 },
+        { name: "First_Faq", id: 10 },
       ],
       main: "",
       secondary: "",
@@ -506,12 +505,12 @@ export default defineComponent({
     // reqeust api
 
     // open and close setting
-    window.addEventListener("click", function (e) {
-      if (document.getElementById("setting").contains(e.target)) {
-        document.getElementById("controler").classList.toggle("show");
-        document.getElementById("over-lay").classList.toggle("show");
-      }
-    });
+    // window.addEventListener("click", function (e) {
+    //   if (document.getElementById("setting").contains(e.target)) {
+    //     document.getElementById("controler").classList.toggle("show");
+    //     document.getElementById("over-lay").classList.toggle("show");
+    //   }
+    // });
   },
 });
 </script>

@@ -20,38 +20,28 @@
         </ul>
 
     <div v-if="blog.length > 0" class="content-blog">
-      	<transition-group class="blog" name="blog" >
-
-          <div class="blog-item" v-for="item in blog" :key="item.id"
+      	<transition-group class="blogs" name="blog">
+          <div class="blog-item" v-for="item in filterTeam" :key="item.id"
+          :style="[readMore != null ? {'width': '90%'}: '']"
       v-show="currentFilter === item.pcategory_id || currentFilter === 'ALL'">
-            <div class="image"><img  v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" alt=""></div>
+            <div class="image"><img  v-lazy="`${GlobalUrl}/storage/${item.cover}`" alt=""></div>
           <div class="info-content">
-            <h3>{{ item.slug }}</h3>
+            <h3>{{ item.slug }}</h3> 
             <div class="title"> {{ item.title }}</div>
-            <div v-html="item.body" class="desc"></div>
+            <div v-if="readMore != null" v-html="item.body" class="desc"></div>
                <ul class="utility-list">
       <li><span class="licon icon-like"><i class="icofont-eye-alt"></i></span>{{ item.views }} /</li>
       <li><span class="licon icon-dat"><i class="icofont-clock-time"></i></span>03 jun 2017 /</li>
       <li><span class="licon icon-tag"><i class="icofont-label"></i></span>{{item.keyword}}</li>
     </ul>
+      <div v-if="readMore == null" class="read" @click="readMore = item.id"><button>{{$t('more')}}</button></div>
+      <div v-else class="read" @click="readMore = null"><button>
+        <i v-if="lang == 'ar'" class="icofont-arrow-right"></i>
+        <i v-else class="icofont-arrow-left"></i>
+      
+        </button></div>
           </div>
  </div>
-<!-- /.blog-card -->
-      <!-- <div class="blog-item" v-for="item in blog" :key="item.id"
-      v-show="currentFilter === item.pcategory_id || currentFilter === 'ALL'">
-        <div class="blog-img">
-        <img  v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" alt="">
-        </div>
-        <div class="blog-content">
-          <h2 class="blog-code">
-           <span> 26 December 2019</span> / views <span>{{ item.views }}</span> /
-            <span>{{ item.keyword }}</span>
-          </h2>
-          <div class="blog-title">{{ item.title }}</div>
-          <div class="blog-text" v-html="item.body"></div>
-          <a href="#" class="blog-button">READ MORE</a>
-        </div>
-      </div> -->
         </transition-group>
     </div>
     <Unavailble :name="'Blog'" v-else />
@@ -68,13 +58,15 @@
 import TitlePage from "../components/global/title-page.vue";
 import Unavailble from "../components/global/unavailble.vue";
 import axios from "axios";
-
+import { mapState } from 'vuex';
 export default {
-  name: "about",
+  name: "blog",
   data() {
     return {
+    lang: localStorage.getItem('lang')  ||'en',
     blog: [],
     pcategories: [],
+    readMore: null,
     currentFilter: 'ALL',
           items: [
         { item: true },
@@ -87,7 +79,22 @@ export default {
   },
   props: [""],
   components: { TitlePage, Unavailble },
-  computed: {},
+  computed: {
+      ...mapState([
+        'GlobalUrl'
+    ]),
+        filterTeam() {
+          if(this.readMore != null){
+          return this.blog.filter((el) => {
+          return el.id ==  this.readMore;
+        });
+          }
+        else{
+          return this.blog;
+        }
+
+    },
+  },
   methods: {
       setFilter(filter) {
 			this.currentFilter = filter;
@@ -95,20 +102,20 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`http://badaelonline.com/backend/public/blog`)
+        .get(`/blog`)
         .then((res) => {
           self.blog = res.data.data.lpost;
-          console.log("blog: ", res.data.data.blog);
+          // console.log("blog: ", res.data.data.blog);
         })
         .catch(function (error) {
           console.warn("Error blog ", error.toJSON());
         });
           // pcategories for filter
       await axios
-        .get(`http://badaelonline.com/backend/public/`)
+        .get(`/`)
         .then((res) => {
           self.pcategories = res.data.data.pcategories;
-          console.log("pcategories: ", res.data.data.pcategories);
+          // console.log("pcategories: ", res.data.data.pcategories);
         })
         .catch(function (error) {
           console.warn("Error pcategories ", error.toJSON());

@@ -1,5 +1,8 @@
 /* .........../services Menu/............ */
-
+$mainColor: #1daad2;
+section{
+  background-color: #fff;
+  overflow: hidden;
 .services-menu-heading {
     text-align: center;
     font-size: 3.4rem;
@@ -12,21 +15,16 @@
     flex-wrap: wrap;
     padding: 0 0px 30px 0px;
     .services-menu-item {
-        cursor: pointer;
         display: flex;
         flex: 1 1 400px;
         justify-content: center;
-        box-shadow: 1px 3px 15px #394f4a; 
+        box-shadow: 1px 3px 15px $mainColor; 
         border-radius: 40px;
         padding: 10px 20px;
         margin: 10px;
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         transition: var(--main-duration);
         background-color: #fff;
-        &:hover{
-        box-shadow: 1px 3px 15px #1abc9c;  
-        scale: 1.1;
-        }
         @media (max-width:767px) {
           flex-direction: column;
           align-items: center;
@@ -34,10 +32,10 @@
         .services-img{
           display: grid;
           align-items: center;
-          font-size: 75px;
+          font-size: 50px;
           color: var(--titleSection-color);
          i{
-          padding: 30px 30px;
+          padding: 15px;
           border: 3px solid var(--titleSection-color);
           border-radius: 50%;
          }
@@ -62,4 +60,5 @@
           }
       }
   }
+}
   /* End services  */

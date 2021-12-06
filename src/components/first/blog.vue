@@ -11,7 +11,7 @@
           >
             <div class="card colum-card">
               <div class="card-body">
-                <img  v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" alt="">
+                <img  v-lazy="`${GlobalUrl}/storage/${item.cover}`" alt="">
                 <span class="card-number subtle">
                   Viewer
                   <span class="card-number card-circle subtle">
@@ -126,7 +126,7 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
-
+import { mapState } from 'vuex';
 export default {
   name: "blog",
   data() {
@@ -134,7 +134,11 @@ export default {
   },
   props: ["blog"],
   components: { Swiper, SwiperSlide },
-  computed: {},
+  computed: {
+    ...mapState([
+      'GlobalUrl'
+    ])
+  },
   methods: {},
   mounted() {},
 };

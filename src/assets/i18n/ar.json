@@ -1,0 +1,31 @@
+{
+"//header2": "appheader",
+"call":"أتصل بنا:",
+"Home": "الرئيسية",
+"About": "من نحن",
+"Services": "خدماتنا",
+"Portfolio": "أعمالنا",
+"Blog": "مقالات",
+"Team": "فريقنا",
+"Partner": "شركائنا",
+
+"//first_contact_component": "first_contact_component",
+"Get_In_Touch":"ابقى على تواصل",
+"where_we_are":"أين نحن ؟",
+"Send":"إرسال",
+
+"//first_team_component": "first_team_component",
+"more":"قراءة المزيد",
+
+"//Footer": "Footer",
+"Systems":"الأنظمة",
+"Contact":"أتصل بنا",
+"Company":"الشركة",
+"Faq":"الاسئلة الشائعة",
+"recruitment":"التوظيف",
+"Join":"انضم لنا",
+"Rule":"الشروط والأحكام",
+"policy":"سياسة الخصوصية",
+"Copyright":" جميع حقوق النشر محفوظة © 2021 لشركة البدائل للحلول البرمجية"
+
+}

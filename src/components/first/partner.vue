@@ -3,7 +3,7 @@
   <div class="partner">
     <div class="container">
       <div class="main-heading">
-        <h2>Partner</h2>
+        <h2>{{$t('Partner')}}</h2>
       </div>
       <swiper
         class="swiper"
@@ -13,7 +13,7 @@
       >
         <swiper-slide v-for="item in partner" :key="item" style="width:250px">
           <a :href="item.link">
-            <img v-lazy="`http://badaelonline.com/backend/public/storage/${item.cover}`" :alt="item.name" />
+            <img v-lazy="`${GlobalUrl}/storage/${item.cover}`" :alt="item.name" />
             <h3>{{item.name}}</h3>
             <!-- <img v-lazy="'img/brand.png'" :alt="item.name" /> -->
           </a>
@@ -31,6 +31,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 SwiperCore.use([Scrollbar]);
+import { mapState } from 'vuex';
 export default {
   name: "partner",
   data() {
@@ -66,7 +67,11 @@ export default {
   },
   props: ["partner"],
   components: { Swiper, SwiperSlide },
-  computed: {},
+  computed: {
+    ...mapState([
+      'GlobalUrl'
+    ])
+  },
   methods: {},
   mounted() {
   },

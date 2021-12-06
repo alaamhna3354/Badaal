@@ -2,8 +2,11 @@
   <!-- Start about -->
      <TitlePage :name="$route.name" :path="$route.name" />
   <div class="about-view" :about="about">
-    <div class="container">
-      <div class="text">
+       <FirstFeatuers :banner="banner" :about="about"
+       style="margin-top: -143px;" />
+   
+    <!--  <div class="container">
+     <div class="text">
         <h1>{{ about.title }}</h1>
         <p>{{ about.subject }}</p>
       </div>
@@ -51,7 +54,7 @@
           </div>
       </swiper-slide>
     </swiper>
-    </div>
+    </div> -->
     <!-- Our Skills -->
 <!--    <div class="main-heading">
                 <h2>Our Skills</h2>
@@ -59,7 +62,33 @@
        <div class="skills" id="skills">
         <div class="container">
           <p class="right" v-html="about.desc"></p>
-            <div class="contain">
+                <div class="bubble-wrapper">
+    <div class="contain-bub" data-aos="fade-right" data-aos-duration="1500">
+    <div class="bubble bub1" >
+     <i class="icofont-file-html5"></i>
+    </div>
+     <h3>Html</h3>
+     </div>
+    <div class="contain-bub" data-aos="fade-down" data-aos-duration="1500">
+     <div class="bubble bub2">
+    <i class="icofont-file-css"></i>
+    </div>
+     <h3>Css</h3>
+     </div>
+    <div class="contain-bub" data-aos="fade-left" data-aos-duration="1500">
+    <div class="bubble bub3">
+      <i class="icofont-file-javascript"></i>
+    </div>
+     <h3>Js</h3>
+     </div>
+    <div class="contain-bub" data-aos="fade-up" data-aos-duration="1500">
+     <div class="bubble bub4">
+       <i class="icofont-brand-louis-vuitton"></i>
+    </div>
+      <h3>Larvel & Vue.js</h3>
+     </div>
+  </div>
+            <!-- <div class="contain">
          
                 <div class="prog-holer">
                     <h4>Html</h4>
@@ -85,58 +114,13 @@
                         <span style=" width: 0%;" data-progress="80%"></span>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- End about -->
-    <!-- Start Team -->
-    <div class="teams" v-if="team.length > 0">
-      <h2 class="special-heading">Our Team</h2>
-      <div class="container">
-        <div class="our-team" v-for="item in team" :key="item">
-          <div class="picture">
-            <img class="img-fluid" v-lazy="`http://badaelonline.com/backend/public/storage/${item.photo}`" />
-            <!-- v-lazy="'img/manger.jpg'" -->
-          </div>
-          <div class="team-content">
-            <h3 class="name">{{ item.name }}</h3>
-            <h4 class="title">{{ item.position }}</h4>
-          </div>
-          <ul class="social">
-            <li>
-              <a
-                :href="item.facebook"
-                class="fab fa-facebook"
-                aria-hidden="true"
-              ></a>
-            </li>
-            <li>
-              <a
-                :href="item.twitter"
-                class="fab fa-twitter"
-                aria-hidden="true"
-              ></a>
-            </li>
-            <li>
-              <a
-                :href="item.instagram"
-                class="fab fa-google-plus"
-                aria-hidden="true"
-              ></a>
-            </li>
-            <li>
-              <a
-                :href="item.linkedin"
-                class="fab fa-linkedin"
-                aria-hidden="true"
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <Unavailble :name="'Team'" v-else />
-    <!-- End Team -->
+    <!-- Start partner -->
+    <FirstPartner :partner="partner" />
+    <!-- End partner -->
     <!-- Starr Faq -->
     <section class="faq-section" v-if="faq.length > 0">
       <div class="container">
@@ -144,7 +128,7 @@
           <!-- ***** FAQ Start ***** -->
           <div class="col-md-6 offset-md-3">
             <div class="faq-title text-center pb-3">
-              <h2>FAQ</h2>
+              <h2>{{$t('Faq')}}</h2>
             </div>
           </div>
           <div class="col-md-6 offset-md-3">
@@ -188,30 +172,46 @@
 </template>
 <script>
 import axios from "axios";
-import TitlePage from "../components/global/title-page.vue";
-import Unavailble from "../components/global/unavailble.vue";
-import SwiperCore, { Navigation, Parallax } from "swiper";
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
+// import SwiperCore, { Navigation, Parallax } from "swiper";
+// // Import Swiper Vue.js components
+// import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-SwiperCore.use([Navigation, Parallax]);
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.scss";
+// SwiperCore.use([Navigation, Parallax]);
+import { defineAsyncComponent } from "vue";
+import { mapState } from 'vuex';
 export default {
   name: "about",
   data() {
     return {
       about: [],
-      team: [],
       faq: [],
     };
   },
   props: [""],
-  components: { Swiper,SwiperSlide,TitlePage, Unavailble },
+  components: { 
+    // Swiper,SwiperSlide,
+    FirstFeatuers: defineAsyncComponent(() =>
+      import("../components/first/featuers.vue")
+    ),
+      FirstPartner: defineAsyncComponent(() =>
+      import("../components/first/partner.vue")
+    ),
+          TitlePage: defineAsyncComponent(() =>
+      import("../components/global/title-page.vue")
+    ),
+          Unavailble: defineAsyncComponent(() =>
+      import("../components/global/unavailble.vue")
+    ),
+},
   computed: {
     parallaxAmount() {
       return this.parallaxSwiperWidth * 0.5;
     },
+    ...mapState([
+      'partner','banner'
+    ]),
   },
   methods: {
      onSwiperInitialized(swiper) {
@@ -220,10 +220,9 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`http://badaelonline.com/backend/public/about-us`) //about-us
+        .get(`/about-us`) //about-us
         .then((res) => {
           self.about = res.data.data.about;
-          self.team = res.data.data.team;
           self.faq = res.data.data.faq;
 
           // console.log("team: ", res.data.data.team);

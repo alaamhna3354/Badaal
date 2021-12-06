@@ -40,10 +40,10 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`http://badaelonline.com/backend/public/services`)
+        .get(`/services`)
         .then((res) => {
           self.service = res.data.data.service;
-          console.log("service: ", res.data.data.service);
+          // console.log("service: ", res.data.data.service);
         })
         .catch(function (error) {
           console.warn("Error service ", error.toJSON());

@@ -1,4 +1,4 @@
-$mainColor: #1abc9c;
+$mainColor: #1daad2;
 $secondryColor: #286f82;
 $pColor: #a2a2a2;
 $sectionPadding: 100px;
@@ -9,6 +9,7 @@ $tranpaerntColor: #0f748fba;
   padding: $sectionPadding 0;
   overflow: hidden;
   text-align: center;
+  background-color: #fff;
   .container {
     display: flex;
     justify-content: space-around;
@@ -53,6 +54,7 @@ $tranpaerntColor: #0f748fba;
           height: 100px;
           width: 100px;
           transition: .5s;
+          margin: 0 auto;
            i{
           color: #fff;
           font-size: 40px;

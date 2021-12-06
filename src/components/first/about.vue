@@ -2,7 +2,7 @@
   <!-- Start About -->
   <div class="about1" v-if="about">
     <div class="main-heading">
-      <h2>About Us</h2>
+      <h2>{{ $t('About') }}</h2>
     </div>
     <div class="container">
       <div class="info">
@@ -11,25 +11,25 @@
           <div><router-link to="/about"><button class="botun">Learn More</button></router-link></div>
       </div>
       <div class="bubble-wrapper">
-    <div class="contain-bub">
-    <div class="bubble bub1">
+    <div class="contain-bub" data-aos="fade-right" data-aos-duration="1500">
+    <div class="bubble bub1" >
      <i class="icofont-file-html5"></i>
     </div>
      <h3>Html</h3>
      </div>
-    <div class="contain-bub">
+    <div class="contain-bub" data-aos="fade-down" data-aos-duration="1500">
      <div class="bubble bub2">
     <i class="icofont-file-css"></i>
     </div>
      <h3>Css</h3>
      </div>
-    <div class="contain-bub">
+    <div class="contain-bub" data-aos="fade-left" data-aos-duration="1500">
     <div class="bubble bub3">
       <i class="icofont-file-javascript"></i>
     </div>
      <h3>Js</h3>
      </div>
-    <div class="contain-bub">
+    <div class="contain-bub" data-aos="fade-up" data-aos-duration="1500">
      <div class="bubble bub4">
        <i class="icofont-brand-louis-vuitton"></i>
     </div>
