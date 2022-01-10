@@ -13,6 +13,10 @@
   </section>
   <!-- End About -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/about.scss";
+</style>
 <script>
 export default {
   name: "about",

@@ -1,6 +1,6 @@
 <template>
   <!-- Start about -->
-    <TitlePage :name="$route.name" :path="$route.name" />
+    <TitlePage  :path="$route.name" />
   <div class="portfolio-view">
     <div class="portfolio" >
       <div class="container">
@@ -48,6 +48,10 @@
   </div>
   <!-- End about -->
 </template>
+<style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/portfolio-view.scss";
+</style>
 <script>
 import axios from "axios";
 import TitlePage from "../components/global/title-page.vue";
@@ -92,7 +96,7 @@ export default {
         });
       // pcategories for filter
       await axios
-        .get(`/`)
+        .get(`/home`)
         .then((res) => {
           self.pcategories = res.data.data.pcategories;
           // console.log("pcategories: ", res.data.data.pcategories);

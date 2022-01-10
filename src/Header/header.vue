@@ -2,7 +2,7 @@
   <div class="header" :general="general">
     <div class="over-lay"></div>
     <div class="container">
-      <div class="logo"><img :src="`http://badaelonline.com/backend/public/storage/${general.logo}`" alt="" /></div>
+      <div class="logo"><img :src="`https://badaelonline.com/backend/public/api/storage/${general.logo}`" alt="" /></div>
       <div class="nav">
         <router-link to="/">Home</router-link>
       </div>

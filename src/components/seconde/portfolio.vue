@@ -16,6 +16,10 @@
   </section>
   <!-- End Portfolio -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/portfolio.scss";
+</style>
 <script>
 export default {
   name: "portfolio",

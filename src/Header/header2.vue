@@ -69,15 +69,15 @@
   </div>
 </template>
 <style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
 /* Start Header */
 .header {
   padding: 0;
-  background: #295667;;
+  background: $secondryColor;
   width: 100%;
 }
-
 .header .top{
-  background-color: var(--titleSection-color);
+  background-color: $mainColor;
 }
 .header .top .container:first-child{
   min-height: 35px !important;
@@ -121,7 +121,7 @@
 .header .top .lang ul{
   position: absolute;
   display: none;
-  background-color: #0082a2;
+  background-color: $mainColor;
   padding: 8px;
   border-radius: 3px;
   margin-inline-start: -15px;
@@ -159,10 +159,10 @@
 .header .top a{
   color: #fff;
   font-size: 14px;
-  transition: var(--main-duration);
+  transition: $mainDuration;
 }
 .header .top a:hover{
-  color: var(--secondary-color);
+  color: $secondryColor;
 }
 .header .container {
   display: flex;
@@ -187,7 +187,7 @@
   display: none;
 }
 .header .nav {
-  transition: var(--main-duration);
+  transition: $mainDuration;
   position: relative;
   font-size: 17px;
 }
@@ -195,10 +195,10 @@
   content: "";
   width: 0;
   height: 0;
-  background-color:var(--titleSection-color);
+  background-color:$mainColor;
   position: absolute;
   bottom: -25px;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -207,11 +207,11 @@
   position: absolute;
   border-width: 0;
   border-style: solid;
-  border-color:  transparent transparent var(--titleSection-color) transparent;
+  border-color:  transparent transparent $mainColor transparent;
   bottom: -24px;
   left: 50%;
   transform: translateX(-50%);
-  transition: var(--main-duration);
+  transition: $mainDuration;
 }
 .header .nav a {
   text-decoration: none;
@@ -229,9 +229,9 @@
   border-width: 8px;
 }
 .header .nav:hover a {
-   text-shadow: 0 0 7px var(--titleSection-color), 0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
-    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color), 0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
-    0 0 151px var(--titleSection-color);
+   text-shadow: 0 0 7px $mainColor, 0 0 10px $mainColor, 0 0 21px $mainColor,
+    0 0 42px $mainColor, 0 0 82px $mainColor, 0 0 92px $mainColor, 0 0 102px $mainColor,
+    0 0 151px $mainColor;
 }
 .header .links:hover span:nth-child(2) {
   width: 100%;
@@ -244,7 +244,7 @@
   cursor: pointer;
 }
 .header .icon span {
-  background-color: var(--titleSection-color);
+  background-color: $mainColor;
   height: 2px;
   margin-bottom: 5px;
 }
@@ -254,7 +254,7 @@
 }
 .header .icon span:nth-child(2) {
   width: 60%;
-  transition: var(--main-duration);
+  transition: $mainDuration;
 }
 .header .menu {
   display: block;
@@ -269,7 +269,7 @@
   content: "";
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent var(--titleSection-color) transparent;
+  border-color: transparent transparent $mainColor transparent;
   position: absolute;
   margin-inline-start: 50px;
   top: -20px;
@@ -279,13 +279,13 @@
   height: 0;
   opacity: 0;
   position: absolute;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   top: 35px;
   width: 100%;
   z-index: 10;
   list-style: none;
   padding: 0;
-  background-color: var(--titleSection-color);
+  background-color: $mainColor;
   text-align: center;
   padding: 5px 0;
   overflow: hidden;
@@ -300,7 +300,7 @@
 }
 .header .menu ul li {
   line-height: 1.5;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   position: relative;
 }
 .header .menu ul li:hover {
@@ -311,7 +311,7 @@
   display: block;
   padding: 5px 20px;
   text-decoration: none;
-  color: var(--white-color);
+  color: #FFF;
   font-weight: 400;
 }
 .header .menu ul li:not(:last-child)::before {
@@ -321,12 +321,12 @@
   background-color: #22859b;
   position: absolute;
   bottom: 0;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   right: 0;
 }
 .header .menu ul li:not(:last-child):hover::before {
   height: 2px;
-  background-color: var(--white-color);
+  background-color: #FFF;
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 767.98px) {

@@ -5,8 +5,9 @@
   </section>
 
 </template>
-<style scoped>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/faq.scss";
 </style>
 <script>
 export default {

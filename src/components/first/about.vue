@@ -44,6 +44,10 @@
   <Unavailble :name="'About'" v-else />
   <!-- End About -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/about.scss";
+</style>
 <script>
 import Unavailble from "../global/unavailble.vue";
 export default {

@@ -26,6 +26,10 @@
     </div>
     <!-- End Services -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/services.scss";
+</style>
 <script>
 export default {
   name: "service",

@@ -1,12 +1,11 @@
 <template>
 <div></div>
 </template>
-<style scoped>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/blog.scss";
 </style>
 <script>
-
-
 export default {
   name: "blog",
   data() {

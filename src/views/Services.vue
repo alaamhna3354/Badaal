@@ -1,5 +1,5 @@
 <template>
-    <TitlePage :name="$route.name" :path="$route.name" />
+    <TitlePage  :path="$route.name" />
   <div class="services-view">
     <!-- Start services -->
     <section id="services-menu" v-if="service.length > 0">
@@ -22,6 +22,10 @@
   </div>
   <!-- End services -->
 </template>
+<style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/services-view.scss";
+</style>
 <script>
 import axios from "axios";
 import TitlePage from "../components/global/title-page.vue";

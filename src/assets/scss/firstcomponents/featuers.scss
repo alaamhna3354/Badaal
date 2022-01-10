@@ -1,8 +1,4 @@
-$mainColor: #1daad2;
-$secondryColor: #286f82;
-$pColor: #a2a2a2;
-$sectionPadding:100px;
-$tranpaerntColor: #0f748fba;
+
 
   // Start featuers
 
@@ -69,7 +65,7 @@ $tranpaerntColor: #0f748fba;
       display: flex;
       justify-content: flex-end;
       transform: translate(-50%,-50%);
-      box-shadow: 1px 4px 30px #00caff;
+      box-shadow: 1px 4px 30px $mainColor;
       border-radius: 10px;
       @media (max-width: 776px) {
           width: 100%;

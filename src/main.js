@@ -3,6 +3,7 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+
 import "jquery";
 import "animate.css";
 import Aos from 'aos';
@@ -10,10 +11,9 @@ import 'aos/dist/aos.css';
 Aos.init();
 import "../src/assets/css/Font_Awesome6.css";
 import "../src/assets/css/icofont.css";
-import "../src/assets/scss/main.scss";
 import axios from "axios";
 import VueLazyLoad from "vue3-lazyload";
-import "../src/assets/scss/main.scss";
+
 // vue-i18n translate
 // {{ $t(' ') }}
 import { createI18n } from "vue-i18n";
@@ -30,5 +30,5 @@ const i18n = createI18n({
     },
   });
 // axios baseURL
-axios.defaults.baseURL = 'https://badaelonline.com/backend/public/';
+axios.defaults.baseURL = 'https://badaelonline.com/backend/public/api/';
 createApp(App).use(store).use(router, axios).use(VueLazyLoad).use(i18n).mount("#app");

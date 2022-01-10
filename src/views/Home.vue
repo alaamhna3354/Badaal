@@ -215,13 +215,14 @@
       </swiper>
     </div>
      <component
-          v-for="item in list.slice(0, 5)"
+          v-for="item in list.slice(0, 6)"
           :key="item"
           :is="item.name"
           :about="about"
           :banner="banner"
           :portfolio="portfolio"
           :service="service"
+          :blog="blog"
          
         />
     <!-- <draggable
@@ -279,6 +280,10 @@
     </draggable> -->
   </div>
 </template>
+<style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/home.scss";
+</style>
 <script>
 import SwiperCore, { Navigation, Parallax } from "swiper";
 // Import Swiper Vue.js components
@@ -400,9 +405,9 @@ export default defineComponent({
         { name: "First_Portfolio", id: 2 },
         { name: "Seconde_Services", id: 3 },
         { name: "First_Team", id: 4 },
-        { name: "First_Contact", id: 5 },
-        { name: "First_About", id: 6 },
-        { name: "First_Blog", id: 7 },
+        { name: "First_Blog", id: 5 },
+        { name: "First_Contact", id: 8 },
+        { name: "First_About", id: 7 },
         { name: "First_Testomonials", id: 8 },
         { name: "First_Partner", id: 9 },
         { name: "First_Faq", id: 10 },

@@ -1,6 +1,6 @@
 <template>
   <!-- Start blog -->
-    <TitlePage :name="$route.name" :path="$route.name" />
+    <TitlePage  :path="$route.name" />
   <div class="blog-view">
             <ul class="shuffle">
            <li
@@ -50,9 +50,8 @@
   <!-- End blog -->
 </template>
 <style lang="scss" scoped>
-// Start Blog
-
-// End Blog
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/blog-view.scss";
 </style>
 <script>
 import TitlePage from "../components/global/title-page.vue";
@@ -104,7 +103,7 @@ export default {
       await axios
         .get(`/blog`)
         .then((res) => {
-          self.blog = res.data.data.lpost;
+          self.blog = res.data.data.post;
           // console.log("blog: ", res.data.data.blog);
         })
         .catch(function (error) {
@@ -112,7 +111,7 @@ export default {
         });
           // pcategories for filter
       await axios
-        .get(`/`)
+        .get(`/home`)
         .then((res) => {
           self.pcategories = res.data.data.pcategories;
           // console.log("pcategories: ", res.data.data.pcategories);

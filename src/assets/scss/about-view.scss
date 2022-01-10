@@ -76,7 +76,7 @@ $tranpaerntColor: #0f748fba;
       }
     }
     .right {
-      flex-basis: 500px;
+      flex-basis: 700px;
       line-height: 1.7;
       @media (max-width:568px) {
         padding: 0 30px;
@@ -96,39 +96,6 @@ $tranpaerntColor: #0f748fba;
 /*  Start Skills */
 .skills{
   .container{
-    .bubble-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      .contain-bub{
-        height: 150px;
-        display: grid;
-        align-content: inherit;
-        .bubble {
-          position: relative;
-          z-index: 2;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-          height: 100px;
-          width: 100px;
-          transition: .5s;
-          margin: 0 auto;
-           i{
-          color: #fff;
-          font-size: 40px;
-        }
-      }
-      h3{
-        opacity: .7;
-        text-shadow: 1px 6px 6px;
-        font-style: italic;
-      }
-    }
-    }
   // .contain{
   //   display: grid;
   //   grid-row-gap: 5px;

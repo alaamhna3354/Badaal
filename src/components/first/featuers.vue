@@ -50,6 +50,10 @@
 
   <!-- End Landing -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/featuers.scss";
+</style>
 <script>
 import SwiperCore, { Navigation, Parallax } from "swiper";
 // Import Swiper Vue.js components

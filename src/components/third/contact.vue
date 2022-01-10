@@ -99,6 +99,10 @@
   </div>
   <!-- End contact3 -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/contact.scss";
+</style>
 <script>
 import $ from "jquery";
 export default {

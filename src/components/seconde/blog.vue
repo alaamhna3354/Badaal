@@ -31,6 +31,10 @@
     </swiper>
   </div>
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/blog.scss";
+</style>
 <script>
 import SwiperCore, { Pagination } from "swiper";
 // Import Swiper Vue.js components

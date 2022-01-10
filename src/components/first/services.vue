@@ -20,8 +20,9 @@
   <!-- End services3 -->
 </template>
 <style lang="scss" scoped>
-$secondryColor: #286f82;
-.main-heading {
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/services.scss";
+ .main-heading {
   text-align: center;
   h2 {
     color: #1abc9c;

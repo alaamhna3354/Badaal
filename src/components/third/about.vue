@@ -23,7 +23,10 @@
   </div>
   <!-- End about3 -->
 </template>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/about.scss";
+</style>
 <script>
 export default {
   name: "about",

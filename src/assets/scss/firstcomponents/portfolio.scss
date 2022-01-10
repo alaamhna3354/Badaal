@@ -1,17 +1,25 @@
-$mainColor: #1daad2;
-$secondryColor: #286f82;
-$pColor: #a2a2a2;
-$sectionPadding: 100px;
-$tranpaerntColor: #0f748fba;
+
 
 /* Start Portfolio */
 .port {
   .portfolios {
     border-top-left-radius: 200px;
-    background-color: var(--secondary-color);
+    background-color: $secondryColor;
     overflow: hidden;
     @media (max-width: 568.98px) {
       border-top-left-radius: 100px;
+    }
+    .main-heading {
+      h2{
+        color: #fff;
+        &::before{
+          background-color: #fff;
+        }
+        &::after{
+          background-color: $secondryColor;
+          border-color: #fff;
+        }
+      }      
     }
     .change-view {
       display: flex;
@@ -26,7 +34,7 @@ $tranpaerntColor: #0f748fba;
         border-radius: 7px;
         font-weight: bold;
         letter-spacing: 2px;
-        transition: var(--main-duration);
+        transition: $mainDuration;
         box-shadow: 1px 1px 25px #0c0d0c;
         &:hover {
           background-color: #51a4ce;

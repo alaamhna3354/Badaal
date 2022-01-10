@@ -1,59 +1,38 @@
 <template>
   <!-- Start about -->
-  <div class="contain animate__animated animate__bounce">
+  <div class="contain">
     <div class="route-name">
-      <span class="left-name">{{ name }}</span>
       <span>Home / {{ path }}</span>
     </div>
   </div>
   <!-- End about -->
 </template>
 <style lang="scss" scoped>
-.contain{ position: relative; z-index: 100;}
+ @import "../../assets/scss/_variables.scss";
+.contain{ 
+  position: relative; 
+  z-index: 100;
+}
 .route-name {
-  background: url(../../../public/img/stats.png) no-repeat center;
-  background-size: cover;
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
-  margin: 10px auto 70px;
-  box-shadow: 1px 1px 25px #2c4755;
-  padding: 20px 10px;
-  background-color: #2c4755;
+  width: 210px;
+  margin: 10px 0 70px 10px;
+  padding: 15px;
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
-
-  text-shadow: 0 0 7px var(--titleSection-color), 0 0 10px var(--titleSection-color), 0 0 21px var(--titleSection-color),
-    0 0 42px var(--titleSection-color), 0 0 82px var(--titleSection-color), 0 0 92px var(--titleSection-color), 0 0 102px var(--titleSection-color),
-    0 0 151px var(--titleSection-color);
+  // text-shadow: 0 0 7px $mainColor, 0 0 10px $mainColor, 0 0 21px $mainColor,
+  //   0 0 42px $mainColor, 0 0 82px $mainColor, 0 0 92px $mainColor, 0 0 102px $mainColor,
+  //   0 0 151px $mainColor;
+    border: 2px solid $mainColor;
+    border-radius: 2px;
   letter-spacing: 0.1em;
-  color: var(--titleSection-color);
+  color:  $mainColor;
   position: relative;
   @media (max-width: 568px) {
     justify-content: space-around;
     span {
       padding-top: 60px;
     }
-  }
-  &::after {
-    content: "";
-    width: 5px;
-    height: 32px;
-    position: absolute;
-    top: -22px;
-    left: 4px;
-    z-index: 99;
-    background: url(../../../public/img/chain.png) no-repeat center center;
-  }
-  &::before {
-    content: "";
-    width: 5px;
-    height: 32px;
-    position: absolute;
-    top: -22px;
-    right: 4px;
-    z-index: 99;
-    background: url(../../../public/img/chain.png) no-repeat center center;
   }
   .left-name {
     @media (max-width: 568px) {

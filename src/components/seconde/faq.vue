@@ -1,7 +1,10 @@
 <template>
   <div></div>
 </template>
-<style scoped></style>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/faq.scss";
+</style>
 <script>
 export default {
   name: "faq",

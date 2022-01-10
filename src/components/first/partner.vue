@@ -23,6 +23,10 @@
   </div>
   <!-- End partner -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/partner.scss";
+</style>
 <script>
 import SwiperCore, { Scrollbar } from "swiper";
 // Import Swiper Vue.js components

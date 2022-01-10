@@ -19,6 +19,10 @@
     </div>
   </section>
 </template>>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/services.scss";
+</style>
 <script>
 export default {
   name: "service",

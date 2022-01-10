@@ -56,6 +56,10 @@
         
     <!-- End Testimonials -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/testomonials.scss";
+</style>
 <script>
 
 export default {

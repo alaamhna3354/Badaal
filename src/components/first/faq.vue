@@ -45,6 +45,10 @@
   </section>
   <!-- End FAQ -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/faq.scss";
+</style>
 <script>
 export default {
   name: "faq",

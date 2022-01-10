@@ -1,8 +1,9 @@
 <template>
   <div></div>
 </template>
-<style scoped>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/thirdcomponents/partner.scss";
 </style>
 <script>
 export default {

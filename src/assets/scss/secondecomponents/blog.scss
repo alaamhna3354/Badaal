@@ -2,13 +2,13 @@
 // Start Blog
 .blog2 {
     padding: 50px 0;
-    background-color: var(--main-color);
+    background-color: $mainColor;
     overflow: hidden;
     h1 {
         text-align: center;
-        text-shadow: 2px 2px 5px var(--titleSection-color);
+        text-shadow: 2px 2px 5px $mainColor;
         font-size: 40px;
-        color: var(--titleSection-color);
+        color: $mainColor;
       }
       .blog-item {
         width: 80%;

@@ -38,7 +38,7 @@ body.style.setProperty("--main-dirction","ltr");
 };
 </script>
 <style lang="scss">
-
+ @import "./assets/scss/_variables.scss";
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -56,21 +56,10 @@ ul {
   list-style: none;
   padding: 0;
 }
-$mainColor: #1daad2;
-$secondryColor: #286f82;
-$pColor: #a2a2a2;
-$sectionPadding: 100px;
-$tranpaerntColor: #0f748fba;
 $dirction :rtl;
 $left :left;
 :root {
   --swiper-navigation-size: 44px;
-  --white-color: #fff;
-  --main-color: #e1f0f9;
-  --secondary-color: #2c4755;
-  --titleSection-color: #1daad2;
-  --section-padding: 50px;
-  --main-duration: 0.5s;
 }
 /* import font family */
 // @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap");
@@ -195,21 +184,21 @@ $left :left;
 /* first Components */
 .botun {
   border: navajowhite;
-  background-color: var(--secondary-color);
+  background-color: $secondryColor;
   color: #fff;
   font-size: 25px;
   padding: 10px 25px;
   border-radius: 30px;
   cursor: pointer;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   cursor: pointer;
   position: relative;
   font-family: "MonteCarlo", cursive, "Aref Ruqaa", serif;
   z-index: 100;
 }
 .botun:hover {
-  background-color: var(--main-color);
-  color: var(--secondary-color);
+  background-color: $mainColor;
+  color: $secondryColor;
 }
 .botun:hover::after {
   display: block;
@@ -220,7 +209,7 @@ $left :left;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 6px solid var(--main-color);
+  border: 6px solid $mainColor;
   position: absolute;
   z-index: 99;
   top: 50%;
@@ -246,7 +235,7 @@ $left :left;
 }
 /* seconde Components */
 .special-heading {
-  color: var(--titleSection-color);
+  color: $mainColor;
   font-size: 60px;
   text-align: center;
   font-weight: 800;

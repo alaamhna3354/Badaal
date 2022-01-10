@@ -1,6 +1,6 @@
 <template>
   <!-- Start about -->
-     <TitlePage :name="$route.name" :path="$route.name" />
+     <TitlePage  :path="$route.name" />
   <div class="about-view" :about="about">
        <FirstFeatuers :banner="banner" :about="about"
        style="margin-top: -143px;" />
@@ -62,32 +62,6 @@
        <div class="skills" id="skills">
         <div class="container">
           <p class="right" v-html="about.desc"></p>
-                <div class="bubble-wrapper">
-    <div class="contain-bub" data-aos="fade-right" data-aos-duration="1500">
-    <div class="bubble bub1" >
-     <i class="icofont-file-html5"></i>
-    </div>
-     <h3>Html</h3>
-     </div>
-    <div class="contain-bub" data-aos="fade-down" data-aos-duration="1500">
-     <div class="bubble bub2">
-    <i class="icofont-file-css"></i>
-    </div>
-     <h3>Css</h3>
-     </div>
-    <div class="contain-bub" data-aos="fade-left" data-aos-duration="1500">
-    <div class="bubble bub3">
-      <i class="icofont-file-javascript"></i>
-    </div>
-     <h3>Js</h3>
-     </div>
-    <div class="contain-bub" data-aos="fade-up" data-aos-duration="1500">
-     <div class="bubble bub4">
-       <i class="icofont-brand-louis-vuitton"></i>
-    </div>
-      <h3>Larvel & Vue.js</h3>
-     </div>
-  </div>
             <!-- <div class="contain">
          
                 <div class="prog-holer">
@@ -122,10 +96,9 @@
     <FirstPartner :partner="partner" />
     <!-- End partner -->
     <!-- Starr Faq -->
-    <section class="faq-section" v-if="faq.length > 0">
+    <!-- <section class="faq-section">
       <div class="container">
         <div class="row" style="width:90%">
-          <!-- ***** FAQ Start ***** -->
           <div class="col-md-6 offset-md-3">
             <div class="faq-title text-center pb-3">
               <h2>{{$t('Faq')}}</h2>
@@ -164,12 +137,16 @@
           </div>
         </div>
       </div>
-    </section>
-    <Unavailble :name="'Faq'" v-else />
+    </section> -->
     <!-- End Faq -->
   </div>
   <!-- End about -->
 </template>
+<style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/about-view.scss";
+//  @import "../assets/scss/firstcomponents/faq.scss";
+</style>
 <script>
 import axios from "axios";
 // import SwiperCore, { Navigation, Parallax } from "swiper";
@@ -200,9 +177,6 @@ export default {
     ),
           TitlePage: defineAsyncComponent(() =>
       import("../components/global/title-page.vue")
-    ),
-          Unavailble: defineAsyncComponent(() =>
-      import("../components/global/unavailble.vue")
     ),
 },
   computed: {

@@ -25,6 +25,10 @@
     </div>
     <!-- End Contact -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/contact.scss";
+</style>
 <script>
 import { mapState } from 'vuex';
 export default {

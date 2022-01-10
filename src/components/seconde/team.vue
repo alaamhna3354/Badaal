@@ -200,7 +200,9 @@
     </section>
   </section>
 </template>
-<style scoped>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/team.scss";
 ul {
   margin: 0;
   padding: 0;

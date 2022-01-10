@@ -12,64 +12,85 @@ $tranpaerntColor: #0f748fba;
     .container {
       padding: 0;
     }
-    .shuffle {
+    .shuffle{
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 100px;
-      li {
-        width: 125px;
-        height: 65px;
-        margin: 40px 20px;
-        background-color: $mainColor;
+      margin-bottom: 50px;
+      li{
         cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 3px;
-        color: #fff;
-        position: relative;
-        font-weight: bold;
-        font-size: 14px;
-        transition: 0.3s;
-        &::after {
-          content: "";
-          position: absolute;
-          border-width: 62px;
-          border-color: $mainColor transparent transparent
-            transparent;
-          border-style: solid;
-          top: 64px;
-          left: 0;
-          border-radius: 2px;
-          z-index: 2;
-        }
-        &:hover {
-          background-color: var(--main-color);
-          color: var(--secondary-color);
-          &::after {
-            border-color: var(--main-color) transparent transparent transparent;
-            transition: 0.3s;
-            z-index: 4;
-          }
+        margin: 1px 2px;
+        padding:5px 10px;
+        border: 1px solid #eee;
+        transition: .5s;
+        &:hover{
+          background-color: $mainColor;
+          color: #fff;
         }
         &.active {
-          background-color: var(--main-color);
-          color: var(--secondary-color);
-          &::after {
-            content: "";
-            position: absolute;
-            border-width: 62px;
-            border-color: var(--main-color) transparent transparent transparent;
-            border-style: solid;
-            top: 64px;
-            left: 0;
-            border-radius: 2px;
-            z-index: 3;
-          }
+          background-color: $mainColor;
+          color: #fff;
         }
       }
     }
+    // .shuffle {
+    //   display: flex;
+    //   justify-content: center;
+    //   flex-wrap: wrap;
+    //   margin-bottom: 100px;
+    //   li {
+    //     width: 125px;
+    //     height: 65px;
+    //     margin: 40px 20px;
+    //     background-color: $mainColor;
+    //     cursor: pointer;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     border-radius: 3px;
+    //     color: #fff;
+    //     position: relative;
+    //     font-weight: bold;
+    //     font-size: 14px;
+    //     transition: 0.3s;
+    //     &::after {
+    //       content: "";
+    //       position: absolute;
+    //       border-width: 62px;
+    //       border-color: $mainColor transparent transparent
+    //         transparent;
+    //       border-style: solid;
+    //       top: 65px;
+    //       left: 0;
+    //       border-radius: 2px;
+    //       z-index: 2;
+    //     }
+    //     &:hover {
+    //       background-color: $tranpColor;
+    //       color: $secondryColor;
+    //       &::after {
+    //         border-color: $tranpColor transparent transparent transparent;
+    //         transition: 0.3s;
+    //         z-index: 4;
+    //       }
+    //     }
+    //     &.active {
+    //       background-color: $tranpColor;
+    //       color: $secondryColor;
+    //       &::after {
+    //         content: "";
+    //         position: absolute;
+    //         border-width: 62px;
+    //         border-color: $tranpColor transparent transparent transparent;
+    //         border-style: solid;
+    //         top: 65px;
+    //         left: 0;
+    //         border-radius: 2px;
+    //         z-index: 3;
+    //       }
+    //     }
+    //   }
+    // }
   .contain{
     margin-top: 50px;
     .container {

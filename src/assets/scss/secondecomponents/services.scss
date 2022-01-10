@@ -1,5 +1,4 @@
 /* .........../services Menu/............ */
-$mainColor: #1daad2;
 section{
   background-color: #fff;
   overflow: hidden;
@@ -7,7 +6,7 @@ section{
     text-align: center;
     font-size: 3.4rem;
     font-weight: 400;
-    color: var(--titleSection-color);
+    color: $mainColor;
   }
   
   .services-menu-container {
@@ -23,7 +22,7 @@ section{
         padding: 10px 20px;
         margin: 10px;
         margin-bottom: 1rem;
-        transition: var(--main-duration);
+        transition: $mainDuration;
         background-color: #fff;
         @media (max-width:767px) {
           flex-direction: column;
@@ -33,10 +32,10 @@ section{
           display: grid;
           align-items: center;
           font-size: 50px;
-          color: var(--titleSection-color);
+          color: $mainColor;
          i{
           padding: 15px;
-          border: 3px solid var(--titleSection-color);
+          border: 3px solid $mainColor;
           border-radius: 50%;
          }
         }
@@ -44,7 +43,7 @@ section{
             margin: auto 1.5rem;
             flex: 1;
             h3{
-              color: var(--titleSection-color);
+              color: $mainColor;
               @media (max-width:568px) {
                text-align: center;
               }

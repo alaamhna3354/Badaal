@@ -63,7 +63,7 @@
   <!-- End Footer -->
 </template>
 <style lang="scss" scoped>
-$mainColor: #1daad2;
+ @import "../assets/scss/_variables.scss";
 .back-top {
     display: grid;
     place-content: center;
@@ -102,12 +102,12 @@ $mainColor: #1daad2;
 }
 /* Start Footer */
 .footer {
-  background-color: var(--secondary-color);
-  color: var(--white-color);
+  background-color: $secondryColor;
+  color: #FFF;
   padding: 0 10px 30px;
   text-align: center;
   font-size: 18px;
-  background-image: url(../../public/img/stats.png);
+  // background-image: url(../../public/img/stats.png);
   background-size: cover;
   position: relative;
 }
@@ -146,7 +146,7 @@ $mainColor: #1daad2;
 .footer .center-footer ul li {
   line-height: 1.8;
   cursor: pointer;
-  transition: var(--main-duration);
+  transition: $mainDuration;
   position: relative;
 }
 @media (max-width:576px) {
@@ -165,32 +165,32 @@ $mainColor: #1daad2;
   bottom: 0;
   left: 38%;
   position: absolute;
-  transition: var(--main-duration);
-  background-color: var(--titleSection-color);
+  transition: $mainDuration;
+  background-color: $mainColor;
 }
 .footer .center-footer ul li:hover {
    text-shadow:
-      0 0 7px  var(--titleSection-color),
-      0 0 10px  var(--titleSection-color),
-      0 0 21px  var(--titleSection-color),
-      0 0 42px  var(--titleSection-color),
-      0 0 82px  var(--titleSection-color);
+      0 0 7px  $mainColor,
+      0 0 10px  $mainColor,
+      0 0 21px  $mainColor,
+      0 0 42px  $mainColor,
+      0 0 82px  $mainColor;
   padding-inline-end: 10px;
 }
 .footer .center-footer ul li:hover::after {
   width: 23%;
   box-shadow:
-      0 0 7px  var(--titleSection-color),
-      0 0 10px  var(--titleSection-color),
-      0 0 21px  var(--titleSection-color),
-      0 0 42px  var(--titleSection-color),
-      0 0 82px  var(--titleSection-color);
+      0 0 7px  $mainColor,
+      0 0 10px  $mainColor,
+      0 0 21px  $mainColor,
+      0 0 42px  $mainColor,
+      0 0 82px  $mainColor;
 }
 
 .left-social i:hover {
   font-size: 25px;
-  color: var(--titleSection-color);
-  border: 2px solid var(--titleSection-color);
+  color: $mainColor;
+  border: 2px solid $mainColor;
   border-radius: 3px;
 }
 
@@ -205,7 +205,7 @@ $mainColor: #1daad2;
   color: #fff;
 }
 .left-social i {
-  transition: var(--main-duration);
+  transition: $mainDuration;
   cursor: pointer;
   padding: 5px;
 }
@@ -225,7 +225,7 @@ $mainColor: #1daad2;
 }
 .footer span {
   font-weight: bold;
-  color: var(--main-color);
+  color: $mainColor;
 }
 .footer .address{
   padding: 15px 0;

@@ -10,7 +10,10 @@
     </section>
   </div>
 </template>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/featuers.scss";
+</style>
 <script>
 export default {
   name: "featuers",

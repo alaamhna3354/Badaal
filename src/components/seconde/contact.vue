@@ -20,6 +20,10 @@
     </div>
   </section>
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/contact.scss";
+</style>
 <script>
 import $ from "jquery";
 export default {

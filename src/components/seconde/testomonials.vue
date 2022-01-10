@@ -62,7 +62,10 @@
     </div>
   </section>
 </template>
-
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/secondecomponents/testomonials.scss";
+</style>
 <script>
 export default {
   name: "testomonials",

@@ -55,6 +55,11 @@
     </div>
   <!-- End Our Team -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/team.scss";
+
+</style>
 <script>
 import axios from "axios";
 import { mapState } from 'vuex';

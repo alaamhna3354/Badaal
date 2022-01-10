@@ -1,5 +1,5 @@
 <template>
-    <TitlePage :name="$route.name" :path="$route.name" />
+    <TitlePage :path="$route.name" />
   <div class="team-view">
     <!-- Start services -->
     <div class="cover"  v-for="item in filterTeam" :key="item">
@@ -84,6 +84,10 @@
   </div>
   <!-- End services -->
 </template>
+<style lang="scss" scoped>
+ @import "../assets/scss/_variables.scss";
+ @import "../assets/scss/team-view.scss";
+</style>
 <script>
 import axios from "axios";
 import { mapState } from 'vuex';

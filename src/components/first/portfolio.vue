@@ -62,6 +62,10 @@
   </div>
   <!-- End Portfolio -->
 </template>
+<style lang="scss" scoped>
+ @import "../../assets/scss/_variables.scss";
+ @import "../../assets/scss/firstcomponents/portfolio.scss";
+</style>
 <script>
 import SwiperCore, { Navigation } from "swiper";
 // Import Swiper Vue.js components
