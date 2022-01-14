@@ -63,7 +63,7 @@
       padding: 50px;
       background-color: #0f748fba;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       transform: translate(-50%,-50%);
       box-shadow: 1px 4px 30px $mainColor;
       border-radius: 10px;
@@ -79,11 +79,14 @@
           font-size: 32px;
           line-height: 1.5;
           margin-bottom: 25px;
+          text-align: center;
         }
         p{
-          font-size: 14px;
+          font-size: 18px;
           line-height: 2;
           font-family: initial;
+          text-align: center;
+
         }
       }
     }

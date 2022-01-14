@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axios from 'axios';
+let lang = window.localStorage.getItem('lang');
 export default createStore({
   state: {
     Headerswitch: 'Header2',
@@ -11,7 +12,7 @@ export default createStore({
     portfolio: [],
     partner: [],
     service: [],
-    GlobalUrl : 'https://badaelonline.com/backend/public/api',
+    GlobalUrl : 'https://badaelonline.com/backend/public/',
 
   },
   mutations: {
@@ -46,7 +47,7 @@ export default createStore({
   actions: {
     loadHome({ commit }) {
       axios
-          .get(`/home`)
+          .get(`/home?lang=${lang}`)
           .then((res) => {
               // console.log('Home :', res.data.data);
               let general = res.data.data.general;

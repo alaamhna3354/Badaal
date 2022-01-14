@@ -11,9 +11,9 @@
     flex-wrap: wrap;
 
     .Blog-item{
-      width: 350px;
+      width: 320px;
       box-shadow: 1px 10px 20px #a2a1a1;
-      margin: 25px 50px;
+      margin: 25px 50px 60px;
       height: 350px;
       cursor: pointer;
       .blog-img{
@@ -58,10 +58,10 @@
         }
       }
     }
-    @each $num in (0),(2),(4),(6) {
-      .item#{$num}{
-        margin-top: -20px;
-      }
-    }
+    // @each $num in (0),(2),(4),(6) {
+    //   .item#{$num}{
+    //     margin-top: -20px;
+    //   }
+    // }
   }
 }

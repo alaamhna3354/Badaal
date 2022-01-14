@@ -3,14 +3,19 @@
   <div class="footer">
      <div class="back-top">
 <i @click="gototop" class="icofont-arrow-up"></i>
-   <a :href="`https://wa.me/${general.phone}`" target="_blank"><button class="botun"><i class="fab fa-whatsapp -f"></i></button></a>
     </div>
-
+     <div class="back-top left">
+<a :href="`https://wa.me/${general.phone}`" target="_blank"><button class="botun"> <i class="fab fa-whatsapp -f"></i></button></a>
+    </div>
     <div class="over-lay"></div>
       <div class="top-footer">
                 <div class="left-social">
         <div class="logo">
-          <a href="#header"> <img v-if="general.logo" :src="`${GlobalUrl}/storage/${general.logo}`" alt="" /></a>
+          <a href="#header">
+            
+             <img  src="../../public/img/logo.png" alt="logo" />
+             <!-- <img v-if="general.logo" :src="`${GlobalUrl}/storage/${general.logo}`" alt="" /> -->
+             </a>
         </div>
         <div class="social">
          <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
@@ -26,8 +31,8 @@
         <ul>
           <li><a href="#about">{{$t('About')}}</a></li>
           <li><a href="#">{{$t('recruitment')}}</a></li>
-          <li>{{general.address1}}</li>
-          <li>{{general.address2}}</li>
+          <li>Swida - Syria</li>
+          <li>Barzzah -Damascus -Syria</li>
         </ul>
       </ul>
       <ul>
@@ -35,10 +40,14 @@
         <ul>
           <li><a href="#">{{$t('Join')}}</a></li>
           <li><a href="#contact">{{$t('Contact')}}</a></li>
-          <li v-if="general.phone">   <a :href="`https://wa.me/${general.phone}`" target="_blank">
+          <!-- <li v-if="general.phone">   <a :href="`https://wa.me/${general.phone}`" target="_blank">
            {{general.phone.replace(' ','').replace(' ','').replace(' ','')}}
+            </a></li> -->
+             <li ><a :href="`https://wa.me/+963991552107`" target="_blank">
+            +963991552107
             </a></li>
-          <li><a :href="general.email">{{general.email}}</a> </li>
+          <!-- <li><a :href="general.email">{{general.email}}</a> </li> -->
+          <li><a href="info@badaelonline.coml" target="_blank">info@badaelonline.com</a> </li>
           <!-- <span>{{general.address1}} - {{general.address2}}</span> -->
         </ul>
       </ul>
@@ -79,6 +88,11 @@
     display: grid;
     align-items: center;
   }
+  .back-top.left {
+    left: 25px;
+    background-color: transparent;
+
+  }
   .back-top i{
     cursor: pointer;
     color: #fff;
@@ -86,20 +100,18 @@
   }
 .back-top button{
   background-color: $mainColor;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
-  left: -60px;
   border-radius: 50%;
   padding: 9px 4px;
-  top: -40px;
   transition: .5s;
+  bottom: 0px;
+  right: 0px;
 }
 .back-top button::after{
   border: 6px solid $mainColor;
 }
-.back-top:hover button{
- opacity: 1;
-}
+
 /* Start Footer */
 .footer {
   background-color: $secondryColor;

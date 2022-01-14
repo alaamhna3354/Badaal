@@ -27,8 +27,9 @@
 		<div class="project" v-show="currentFilter === project.pcategory_id || currentFilter === 'ALL'"  v-for="project in portfolio" :key="project.id">
 		
     	<div class="project-image" >
-			  
-           <a :href="project.client" target="_blank"> <img class="image" :src="`${GlobalUrl}/storage/${project.cover}`">	
+			  <span class="date">{{project.date}}</span>
+           <a :href="project.client" target="_blank"> 
+             <img class="image" :src="`${GlobalUrl}/storage/${project.cover}`">	
           </a>
       </div>
       <div class="details">
@@ -86,23 +87,13 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`/portfolio`)
+        .get(`/portfolio?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.portfolio = res.data.data.portfolio;
-          // console.log("portfolio: ", res.data.data.portfolio);
+          self.pcategories = res.data.data.pcategories;
         })
         .catch(function (error) {
           console.warn("Error portfolio ", error.toJSON());
-        });
-      // pcategories for filter
-      await axios
-        .get(`/home`)
-        .then((res) => {
-          self.pcategories = res.data.data.pcategories;
-          // console.log("pcategories: ", res.data.data.pcategories);
-        })
-        .catch(function (error) {
-          console.warn("Error pcategories ", error.toJSON());
         });
     },
   },

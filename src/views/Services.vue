@@ -44,7 +44,7 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`/services`)
+        .get(`/services?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.service = res.data.data.service;
           // console.log("service: ", res.data.data.service);

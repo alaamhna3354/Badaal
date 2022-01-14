@@ -125,7 +125,7 @@ export default {
         async fetch() {
       var self = this;
       await axios
-        .get(`/about-us`)
+        .get(`/team?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.team = res.data.data.team;
 

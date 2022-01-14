@@ -15,7 +15,7 @@
 }
 .route-name {
   width: 210px;
-  margin: 10px 0 70px 10px;
+  margin: 10px 10px 70px 10px;
   padding: 15px;
   text-align: center;
   font-weight: bold;

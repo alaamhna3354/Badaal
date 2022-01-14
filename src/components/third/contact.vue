@@ -2,7 +2,9 @@
   <!-- Start contact3  -->
 
   <div class="contact3">
-    <h2 class="special-heading un-color">أتصل بنا</h2>
+   <div class="main-heading" style="margin-top: -20px;">
+                <h2>{{$t('Contact')}}</h2>
+            </div>
     <div class="container slider-one-active">
       <div class="steps">
         <div class="step step-one">
@@ -31,14 +33,14 @@
               <input
                 type="text"
                 class="name"
-                placeholder="What's your name?"
+                :placeholder="name_place"
                 v-model="name"
               />
             </label>
             <label class="input">
               <input
                 type="text"
-                placeholder="Type your Email"
+                :placeholder="email_place"
                 ref="email"
                 v-model="email"
                 @keydown="handleEmail()"
@@ -68,7 +70,7 @@
                   style="resize: none"
                   type="text"
                   class="name"
-                  placeholder="Type your message"
+                  :placeholder="message_place"
                 >
                 </textarea>
               </label>
@@ -100,8 +102,8 @@
   <!-- End contact3 -->
 </template>
 <style lang="scss" scoped>
- @import "../../assets/scss/_variables.scss";
- @import "../../assets/scss/thirdcomponents/contact.scss";
+@import "../../assets/scss/_variables.scss";
+@import "../../assets/scss/thirdcomponents/contact.scss";
 </style>
 <script>
 import $ from "jquery";
@@ -111,6 +113,9 @@ export default {
     return {
       name: "",
       email: "",
+      name_place:"what's your name ?",
+      email_place:"Type your Email", 
+      message_place:"Type your message", 
     };
   },
   props: [],

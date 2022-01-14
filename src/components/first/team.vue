@@ -8,7 +8,7 @@
         <div class="our-team" data-aos="fade-up" data-aos-duration="1500"
         v-for="item in team" :key="item">
             <router-link style="text-decoration: none;"
-          :to="{ path: `/team/${item.id}`, params: { id: item.id } }"
+          :to="{ name: `Team`, params: { id: item.id } }"
         >
           <div class="picture">
             <img class="img-fluid" v-lazy="`${GlobalUrl}/storage/${item.photo}`" />
@@ -82,7 +82,7 @@ export default {
         async fetch() {
       var self = this;
       await axios
-        .get(`/about-us`)
+        .get(`/home?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.team = res.data.data.team;
 

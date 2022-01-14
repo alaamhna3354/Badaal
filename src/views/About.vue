@@ -59,10 +59,10 @@
 <!--    <div class="main-heading">
                 <h2>Our Skills</h2>
             </div> -->
-       <div class="skills" id="skills">
+        <!-- <div class="skills" id="skills">
         <div class="container">
           <p class="right" v-html="about.desc"></p>
-            <!-- <div class="contain">
+           <div class="contain">
          
                 <div class="prog-holer">
                     <h4>Html</h4>
@@ -88,15 +88,15 @@
                         <span style=" width: 0%;" data-progress="80%"></span>
                     </div>
                 </div>
-            </div> -->
+            </div> 
         </div>
-    </div>
+    </div>-->
     <!-- End about -->
     <!-- Start partner -->
-    <FirstPartner :partner="partner" />
+    <FirstPartner :partner="partn" />
     <!-- End partner -->
     <!-- Starr Faq -->
-    <!-- <section class="faq-section">
+    <section class="faq-section">
       <div class="container">
         <div class="row" style="width:90%">
           <div class="col-md-6 offset-md-3">
@@ -125,7 +125,7 @@
                     </h5>
                   </div>
                 </div>
-                <div class="collapse" v-show="item.open">
+                <div class="collapse animate__animated animate__fadeIn" v-show="item.open">
                   <div class="card-body">
                     <p>
                       {{ item.answer }}
@@ -137,7 +137,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section> 
     <!-- End Faq -->
   </div>
   <!-- End about -->
@@ -145,7 +145,7 @@
 <style lang="scss" scoped>
  @import "../assets/scss/_variables.scss";
  @import "../assets/scss/about-view.scss";
-//  @import "../assets/scss/firstcomponents/faq.scss";
+ @import "../assets/scss/firstcomponents/faq.scss";
 </style>
 <script>
 import axios from "axios";
@@ -164,6 +164,7 @@ export default {
     return {
       about: [],
       faq: [],
+      partn: [],
     };
   },
   props: [""],
@@ -184,7 +185,7 @@ export default {
       return this.parallaxSwiperWidth * 0.5;
     },
     ...mapState([
-      'partner','banner'
+      'banner'
     ]),
   },
   methods: {
@@ -194,10 +195,11 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`/about-us`) //about-us
+        .get(`/about-us?lang=${localStorage.getItem('lang')}`) //about-us
         .then((res) => {
           self.about = res.data.data.about;
           self.faq = res.data.data.faq;
+          self.partn = res.data.data.partner;
 
           // console.log("team: ", res.data.data.team);
         })
@@ -209,16 +211,16 @@ export default {
   mounted() {
     this.fetch();
     // animation width of skills
-let sectionSlills = document.getElementById('skills');
-let spans = document.querySelectorAll('.prog span');
-window.onscroll = function () {
-    if ((window.scrollY +200) >= sectionSlills.offsetTop) {
-        spans.forEach((span) => {
-            span.style.width = span.dataset.progress;
-            span.classList.remove('zero')
-        });
-    }
-};
+// let sectionSlills = document.getElementById('skills');
+// let spans = document.querySelectorAll('.prog span');
+// window.onscroll = function () {
+//     if ((window.scrollY +200) >= sectionSlills.offsetTop) {
+//         spans.forEach((span) => {
+//             span.style.width = span.dataset.progress;
+//             span.classList.remove('zero')
+//         });
+//     }
+// };
   },
 };
 </script>

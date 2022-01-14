@@ -2,11 +2,16 @@
   <div class="header">
     <div class="top">
     <div class="container ">
-      <div class="conta" >
+      <!-- <div class="conta" >
      {{$t('call')}} <a  v-if="general.phone"
      :href="`https://wa.me/${general.phone}`" target="_blank">
      {{general.phone.replace(' ','').replace(' ','').replace(' ','')}}</a> -
      <a :href="general.email">{{general.email}}</a> 
+ </div> -->
+       <div class="conta" >
+     {{$t('call')}} <a :href="`https://wa.me/+963991552107`" target="_blank">
+     +963991552107</a> -
+     <a href="info@badaelonline.com" target="_blank">info@badaelonline.com</a> 
  </div>
       <div class="social-top">
          <a :href="general.linkedin"><i class="fab fa-linkedin"></i></a>
@@ -16,13 +21,13 @@
      
           <div class="lang">
                 <span v-if="lang == 'ar'">Ar</span>
-                <span v-if="lang == 'sp'">Es</span>
+                <!-- <span v-if="lang == 'sp'">Es</span> -->
                 <span v-if="lang == 'en'">En</span>
                <i class="fas fa-globe"></i>
             <ul class="animate__animated animate__fadeIn">
               <li @click="SetLangEn()"><img src="../../public/img/usa.png" alt="" style="width:27px;margin: 0 2px;"> En</li>
               <li @click="SetLangAr()"> <img src="../../public/img/syria.png" alt="" style="width:25px;margin: 0 2px;">Ar</li>
-              <li @click="SetLangSp()"><img src="../../public/img/spain.png" alt="" style="width:25px;margin: 0 2px;">Es</li>
+              <!-- <li @click="SetLangSp()"><img src="../../public/img/spain.png" alt="" style="width:25px;margin: 0 2px;">Es</li> -->
             </ul>
       </div>
     </div>
@@ -31,7 +36,8 @@
     <div class="container">
       <div class="logo" id="logo">
         <router-link to="/">
-        <img v-if="general.logo" :src="`${GlobalUrl}/storage/${general.logo}`" alt="" />
+        <img src="../../public/img/logo.png" alt="Logo" /> 
+        <!-- <img v-if="general.logo" :src="`${GlobalUrl}/storage/${general.logo}`" alt="" /> -->
         </router-link>
         </div>
 

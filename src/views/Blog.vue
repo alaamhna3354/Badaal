@@ -101,7 +101,7 @@ export default {
     async fetch() {
       var self = this;
       await axios
-        .get(`/blog`)
+        .get(`/blog?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.blog = res.data.data.post;
           // console.log("blog: ", res.data.data.blog);
@@ -111,7 +111,7 @@ export default {
         });
           // pcategories for filter
       await axios
-        .get(`/home`)
+        .get(`/home?lang=${localStorage.getItem('lang')}`)
         .then((res) => {
           self.pcategories = res.data.data.pcategories;
           // console.log("pcategories: ", res.data.data.pcategories);

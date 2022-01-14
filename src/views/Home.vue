@@ -406,7 +406,7 @@ export default defineComponent({
         { name: "Seconde_Services", id: 3 },
         { name: "First_Team", id: 4 },
         { name: "First_Blog", id: 5 },
-        { name: "First_Contact", id: 8 },
+        { name: "third_Contact", id: 8 },
         { name: "First_About", id: 7 },
         { name: "First_Testomonials", id: 8 },
         { name: "First_Partner", id: 9 },

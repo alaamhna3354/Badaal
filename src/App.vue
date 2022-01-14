@@ -83,7 +83,7 @@ $left :left;
   &.swiper-button-disabled {
     opacity: 0.35;
     cursor: auto;
-    pointer-events: none;
+    // pointer-events: none;
   }
   &:after {
     font-family: swiper-icons;
