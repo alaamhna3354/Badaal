@@ -201,7 +201,7 @@
   content: "";
   width: 0;
   height: 0;
-  background-color:$mainColor;
+  background-color: #fff;
   position: absolute;
   bottom: -25px;
   transition: $mainDuration;
@@ -213,7 +213,7 @@
   position: absolute;
   border-width: 0;
   border-style: solid;
-  border-color:  transparent transparent $mainColor transparent;
+  border-color:  transparent transparent #fff transparent;
   bottom: -24px;
   left: 50%;
   transform: translateX(-50%);

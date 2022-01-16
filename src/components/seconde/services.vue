@@ -7,7 +7,7 @@
       <div class="services-menu-item" v-for="(item,index) in service" :key="index"
        :data-aos="[index % 2 === 0 ? 'fade-up-right':'fade-up-left']" data-aos-duration="1500">
         <div class="services-img">
-         <i :class="`${item.icon }`"></i>
+           <img v-lazy="`${GlobalUrl}storage/${item.icon}`"  />
         </div>
         <div class="services-description">
           <h3>

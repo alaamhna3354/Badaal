@@ -1,7 +1,7 @@
 <template>
   <!-- Start Footer -->
   <div class="footer">
-     <div class="back-top">
+     <div class="back-top right">
 <i @click="gototop" class="icofont-arrow-up"></i>
     </div>
      <div class="back-top left">
@@ -83,13 +83,15 @@
     transition: .5s;
     background-color: $mainColor;
     bottom: 25px;
-    right: 25px;
     border-radius: 50%;
     display: grid;
     align-items: center;
   }
+   .back-top.right {
+    right: 25px !important;
+  }
   .back-top.left {
-    left: 25px;
+    left: 25px !important;
     background-color: transparent;
 
   }

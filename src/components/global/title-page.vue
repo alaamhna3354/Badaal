@@ -2,7 +2,7 @@
   <!-- Start about -->
   <div class="contain">
     <div class="route-name">
-      <span>Home / {{ path }}</span>
+      <span> Home  </span> <span> / {{ path }}</span>
     </div>
   </div>
   <!-- End about -->
@@ -32,11 +32,6 @@
     justify-content: space-around;
     span {
       padding-top: 60px;
-    }
-  }
-  .left-name {
-    @media (max-width: 568px) {
-      display: none;
     }
   }
 }

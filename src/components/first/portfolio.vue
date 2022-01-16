@@ -50,7 +50,7 @@
             <swiper-slide v-for="item in portfolio" :key="item">
               <a :href="item.client">
                 <div class="image-scroll">
-                  <img v-lazy="`${GlobalUrl}/storage/${item.mobileImage}`" :alt="item.name" />
+                  <img v-lazy="`${GlobalUrl}storage/${item.mobileImage}`" :alt="item.name" />
                 </div>
                 <!--  :src="'img/badaal-design-mob.png'" -->
               </a>

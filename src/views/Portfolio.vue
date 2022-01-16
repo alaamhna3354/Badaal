@@ -9,7 +9,7 @@
             :class="{ active: currentFilter === 'ALL' }"
             @click="setFilter('ALL')"
           >
-          All
+          {{$t('All')}}
           </li>
           <li
             v-for="(filterItem, index) in pcategories"

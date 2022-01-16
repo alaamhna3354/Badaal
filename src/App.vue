@@ -51,6 +51,7 @@ body {
   font-family: "Amiri", serif;
   margin: 0;
   direction: var(--main-dirction);
+  background-color: #00000005;
 }
 ul {
   list-style: none;

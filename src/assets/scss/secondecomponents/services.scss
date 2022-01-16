@@ -1,5 +1,5 @@
 /* .........../services Menu/............ */
-section{
+#services-menu{
   background-color: #fff;
   overflow: hidden;
 .services-menu-heading {
@@ -24,6 +24,7 @@ section{
         margin-bottom: 1rem;
         transition: $mainDuration;
         background-color: #fff;
+        max-width: 565px;
         @media (max-width:767px) {
           flex-direction: column;
           align-items: center;
@@ -31,12 +32,12 @@ section{
         .services-img{
           display: grid;
           align-items: center;
-          font-size: 50px;
-          color: $mainColor;
-         i{
+         img{
           padding: 15px;
-          border: 3px solid $mainColor;
+          // border: 3px solid $mainColor;
           border-radius: 50%;
+          width: 100px;
+          height: 85px;
          }
         }
         .services-description {

@@ -9,15 +9,15 @@
       <div class="steps">
         <div class="step step-one">
           <div class="liner"></div>
-          <span>! مرحبا </span>
+          <span>{{ $t('hello') }}</span>
         </div>
         <div class="step step-two">
           <div class="liner"></div>
-          <span>التقييم</span>
+          <span>{{ $t('Evaluation') }}</span>
         </div>
         <div class="step step-three">
           <div class="liner"></div>
-          <span>استنتاج</span>
+          <span>{{ $t('conclusion') }}</span>
         </div>
       </div>
       <div class="line">
@@ -60,10 +60,10 @@
               ></i>
             </label>
 
-            <button class="first next">التالي</button>
+            <button class="first next">{{ $t('next') }}</button>
           </form>
           <form class="slider-form slider-two">
-            <h2>هل أنت سعيد بخدماتنا؟</h2>
+            <h2> {{ $t('are_you_happy') }}</h2>
             <div class="label-ctr">
               <label class="input">
                 <textarea
@@ -87,12 +87,12 @@
                 </div>
               </label>
             </div>
-            <button class="second next">التالي</button>
+            <button class="second next">{{ $t('next') }}</button>
           </form>
           <div class="slider-form slider-three">
-            <h2>مرحبا, <span class="yourname"></span></h2>
-            <h3>شكرا لك على تواصلك معنا!</h3>
-            <a class="reset"><button class="botun">ارسال</button></a>
+            <h2>{{ $t('hello') }}  <span class="yourname"></span></h2>
+            <h3>{{ $t('thx') }}</h3>
+            <a class="reset"><button class="botun">{{ $t('Send') }}</button></a>
             <!-- target="_blank" -->
           </div>
         </div>

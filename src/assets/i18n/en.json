@@ -12,10 +12,22 @@
     "//first_contact_component": "first_contact_component",
     "Get_In_Touch":"Get In Touch",
     "where_we_are":"Where We Are ?",
+    "Evaluation":"Evaluation",
+    "conclusion":"conclusion",
     "Send":"Send",
+    "next":"next",
+    "hello":"hello",
+    "thx":"Thank you for contact us",
+    "are_you_happy":"Are you happy with our services ?",
+
+    
+
 
     "//first_team_component": "first_team_component",
     "more":"Read More",
+
+    "//Portiflio_View": "first_team_component",
+    "All":"All",
 
     "//Footer": "Footer",
     "Systems":"Systems",

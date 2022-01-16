@@ -13,9 +13,21 @@
 "Get_In_Touch":"ابقى على تواصل",
 "where_we_are":"أين نحن ؟",
 "Send":"إرسال",
+"Evaluation":"التقييم",
+"conclusion":"استنتاج",
+"next":"التالي",
+"hello":"مرحبا",
+"thx":"شكرا لك على تواصلك معنا",
+"are_you_happy":"هل أنت سعيد بخدماتنا ؟",
+
+
+
 
 "//first_team_component": "first_team_component",
 "more":"قراءة المزيد",
+
+"//Portiflio_View": "first_team_component",
+    "All":"الكل",
 
 "//Footer": "Footer",
 "Systems":"الأنظمة",
